@@ -1,0 +1,41 @@
+.fon_container{
+	-fx-background-color: #1f5bf2; /* Основной цвет фона */
+    -fx-background-radius: 30; /* Скругление углов */
+    -fx-effect: innershadow(gaussian, black, 20, 1, 0, 0);
+}
+
+.text_fon{
+    -fx-alignment: center;
+    -fx-font-family: "Myriad Pro";
+    -fx-font-weight: bold;
+    -fx-font-size: 3em; 
+    -fx-font-color: #0d0d0d;
+}
+
+.text_fon_task_count_coints{
+    -fx-alignment: center;
+    -fx-font-family: "Myriad Pro";
+    -fx-font-weight: bold;
+    -fx-font-size: 1.3em; 
+    -fx-font-color: #0d0d0d;
+}
+
+.text_fon_task_name{
+    -fx-alignment: center;
+    -fx-font-family: "Myriad Pro";
+    -fx-font-weight: bold;
+    -fx-font-size: 2em; 
+    -fx-font-color: #0d0d0d;
+}
+
+.hbox_button{
+    -fx-max-width: 200px;
+    -fx-width: 100px;
+    -fx-max-height: 5px;
+    -fx-background-radius: 20;
+    -fx-background-color: #000000;
+    -fx-font-size: 1.5em; 
+    -fx-font-family: "Myriad Pro";
+    -fx-fill: #ffffff;
+    -fx-font-weight: bold;
+}

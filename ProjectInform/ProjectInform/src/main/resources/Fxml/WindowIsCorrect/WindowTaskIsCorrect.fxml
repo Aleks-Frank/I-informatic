@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.projectinform.Controllers.WindowIsCorrect.WindowTaskIsCorrect"
+            prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <VBox alignment="CENTER" layoutX="38.0" layoutY="36.0" prefHeight="328.0" prefWidth="524.0">
+            <children>
+                <Label styleClass="text_fon" text="Задание" textFill="#0d0d0d">
+                    <VBox.margin>
+                        <Insets bottom="30.0" />
+                    </VBox.margin>
+                </Label>
+                <Label prefHeight="109.0" prefWidth="495.0" styleClass="text_fon_task" text="Задание: напишите предложение «Мороз и солнце, день чудесный»" textAlignment="CENTER" textFill="#0d0d0d" wrapText="true">
+                    <VBox.margin>
+                        <Insets bottom="30.0" top="30.0" />
+                    </VBox.margin>
+                </Label>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <Button maxHeight="39.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="170.0" styleClass="hbox_button" text="Выход" textFill="WHITE">
+                            <HBox.margin>
+                                <Insets left="40.0" right="40.0" />
+                            </HBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="170.0" styleClass="hbox_button" text="Продолжить" textFill="WHITE">
+                            <HBox.margin>
+                                <Insets left="40.0" right="40.0" />
+                            </HBox.margin>
+                        </Button>
+                    </children>
+                    <VBox.margin>
+                        <Insets top="30.0" />
+                    </VBox.margin>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+
+</AnchorPane>

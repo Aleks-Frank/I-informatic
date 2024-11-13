@@ -1,0 +1,17 @@
+.fon_container{
+	-fx-background-color: #1f5bf2; /* Основной цвет фона */
+    -fx-background-radius: 20; /* Скругление углов */
+    -fx-effect: innershadow(gaussian, black, 20, 1, 0, 0);
+}
+
+.vbox_button{
+    -fx-max-width: 200px;
+    -fx-max-height: 5px;
+    -fx-background-radius: 10;
+    -fx-background-color: #000000;
+    -fx-font-size: 1.5em; 
+    -fx-font-family: "Myriad Pro";
+    -fx-fill: #ffffff;
+    -fx-font-weight: bold;
+}
+

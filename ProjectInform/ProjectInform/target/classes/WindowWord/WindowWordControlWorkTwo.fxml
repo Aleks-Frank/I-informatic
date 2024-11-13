@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0" styleClass="fon_container" stylesheets="@../Styles/stylesWordWindow.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.projectinform.Controllers.WindowWord.WindowWordControlWorkTwoController">
+   <children>
+      <VBox layoutX="19.0" layoutY="19.0" prefHeight="562.0" prefWidth="863.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="129.0" prefWidth="863.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" styleClass="button_preferens">
+                     <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Paints/Preferens.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label prefHeight="88.0" prefWidth="438.0" styleClass="text_fon" text="Глава 1: Word" textAlignment="CENTER" textFill="#010000">
+                     <font>
+                        <Font name="Nadeem Regular" size="26.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="100.0" right="100.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Button fx:id="closeButton" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" styleClass="button_close">
+                     <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Paints/Close.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="322.0" prefWidth="863.0">
+               <children>
+                  <Button fx:id="lastWindow" mnemonicParsing="false" prefHeight="86.0" prefWidth="50.0" styleClass="transparent-button">
+                     <graphic>
+                        <ImageView fitHeight="115.0" fitWidth="50.0">
+                           <image>
+                              <Image url="@../Paints/button_left.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="enterWorkControl" mnemonicParsing="false" prefHeight="168.0" prefWidth="341.0" styleClass="buttom_contrl_work" text="Контрольная работа №2" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets left="200.0" right="200.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="nextWindow" mnemonicParsing="false" prefHeight="86.0" prefWidth="50.0" styleClass="transparent-button">
+                     <graphic>
+                        <ImageView fitHeight="115.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Paints/button_right.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="110.0" prefWidth="863.0" styleClass="hbox_buttom">
+               <children>
+                  <Button fx:id="backMenuStudent" mnemonicParsing="false" prefWidth="326.0" text="Назад" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </HBox.margin>
+                  </Button>
+                  <AnchorPane prefHeight="26.0" prefWidth="326.0">
+                     <children>
+                        <Label fx:id="count" alignment="CENTER" layoutX="130.0" layoutY="22.0" prefHeight="35.0" prefWidth="175.0" styleClass="hbox_arch_pane_label_text" text="0" textFill="WHITE" AnchorPane.bottomAnchor="22.4" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="20.799999999999983" AnchorPane.topAnchor="22.0" />
+                        <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <image>
+                              <Image url="@../Paints/I.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </HBox.margin>
+                  </AnchorPane>
+               </children>
+               <padding>
+                  <Insets bottom="20.0" top="20.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+
+</AnchorPane>

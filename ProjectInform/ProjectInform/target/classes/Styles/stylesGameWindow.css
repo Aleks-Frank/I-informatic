@@ -1,0 +1,124 @@
+/* Основной фон */
+.fon_container{
+	-fx-background-color: #319865; /* Основной цвет фона */
+    -fx-background-radius: 30; /* Скругление углов */
+    -fx-effect: innershadow(gaussian, black, 20, 1, 0, 0);
+}
+
+/* Кнопки в GridPane */
+.grid_pane_fon{
+	-fx-alignment: center;
+}
+
+.grid_pane_fon Button{
+	-fx-max-width: 90px;
+    -fx-max-height: 90px;
+    -fx-background-radius: 10;
+    -fx-background-color: #000000;
+    -fx-font-size: 3em; 
+    -fx-font-family: "Myriad Pro";
+    -fx-fill: #ffffff;
+    -fx-font-weight: bold;
+}
+
+/* Кнопки */
+.button_close{
+    -fx-background-color: #BD1622;
+    -fx-background-radius: 10; /* Сильные скругления углов */
+}
+
+.button_preferens{
+    -fx-background-color: #000000;
+    -fx-background-radius: 45; /* Сильные скругления углов */
+}
+
+/* Заголовок */
+.text_fon{
+    -fx-alignment: center;
+    -fx-font-family: "Myriad Pro";
+    -fx-font-weight: bold;
+    -fx-font-size: 5em; 
+}
+
+/* Hbox */
+.hbox_buttom {
+    -fx-alignment: center;
+}
+
+.hbox_buttom Button{
+    -fx-max-width: 300px;
+    -fx-max-height: 60px;
+    -fx-background-radius: 40;
+    -fx-background-color: #000000;
+    -fx-font-size: 2.5em; 
+    -fx-font-family: "Myriad Pro";
+    -fx-fill: #ffffff;
+    -fx-font-weight: bold;
+    -fx-margin: 200px;
+}
+
+.hbox_buttom AnchorPane{
+    -fx-max-width: 300px;
+    -fx-max-height: 60px;
+    -fx-background-radius: 40;
+    -fx-background-color: #000000;
+    -fx-font-size: 2em; 
+    -fx-font-family: "Myriad Pro";
+    -fx-fill: #ffffff;
+    -fx-font-weight: bold;
+    -fx-margin: 200px;
+}
+
+.hbox_arch_pane_label_text{
+    -fx-font-size: 1.5em; 
+    -fx-font-family: "Myriad Pro";
+    -fx-font-weight: bold;
+}
+
+/*Button right*/
+.transparent-button {
+    -fx-background-color: transparent;
+}
+
+.buttom_contrl_work{
+    -fx-background-radius: 40;
+    -fx-background-color: #000000;
+    -fx-font-size: 2em; 
+    -fx-font-color: white;
+    -fx-font-family: "Myriad Pro";
+    -fx-fill: #ffffff;
+    -fx-font-weight: bold;
+}
+
+.name_game{
+    -fx-font-size: 3em; 
+    -fx-font-color: #0d0d0d;
+    -fx-font-family: "Myriad Pro";
+    -fx-font-weight: bold;
+}
+
+.hbox_new_game{
+    -fx-alignment: center;
+}
+
+.hbox_new_game Button{
+    -fx-max-width: 500px;
+    -fx-max-height: 10px;
+    -fx-background-radius: 10;
+    -fx-background-color: white;
+    -fx-font-size: 1em; 
+    -fx-font-family: "Myriad Pro";
+    -fx-fill: #ffffff;
+    -fx-font-weight: bold;
+}
+
+.hbox_new_game Label{
+    -fx-width: 50px;
+    -fx-height: 25px;
+    -fx-background-radius: 10;
+    -fx-background-color: white;
+    -fx-font-size: 1em; 
+    -fx-font-family: "Myriad Pro";
+    -fx-fill: #ffffff;
+    -fx-font-weight: bold;
+}
