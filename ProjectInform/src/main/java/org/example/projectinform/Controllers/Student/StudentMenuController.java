@@ -20,12 +20,17 @@ public class StudentMenuController implements Initializable {
     @FXML
     private Button closeButton;
 
+    @FXML
+    private Button settingsButton;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         SpecialMethodsClass.switchWindow(backMenuStr, "/Fxml/WindowEnterAndInput/Login.fxml");
 
         SpecialMethodsClass.switchWindow(wordNextStr, "/Fxml/WindowWord/WindowWordOne.fxml");
+
+        SpecialMethodsClass.switchSettings(settingsButton, "/Fxml/Student/SettingsMenu.fxml");
 
         SpecialMethodsClass.closeWindow(closeButton);
 

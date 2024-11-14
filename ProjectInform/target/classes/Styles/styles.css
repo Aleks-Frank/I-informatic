@@ -2,8 +2,6 @@
     -fx-background-color: #F3981C; /* Основной цвет фона */
     -fx-background-radius: 30; /* Скругление углов */
     -fx-effect: innershadow(gaussian, black, 20, 1, 0, 0);
-    -fx-min-width: 600px;
-    -fx-min-height: 400px; 
 }
 /* Текст Авторизации */
 

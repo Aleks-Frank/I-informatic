@@ -48,6 +48,8 @@ public class RegistrationController implements Initializable {
 
         SpecialMethodsClass.switchWindow(backLogin, "/Fxml/WindowEnterAndInput/Login.fxml");
 
+        SpecialMethodsClass.switchSettings(settingsButton, "/Fxml/WindowEnterAndInput/LoginSettings.fxml");
+
         SpecialMethodsClass.closeWindow(closeButton);
     }
 }

@@ -46,15 +46,12 @@
 }
 
 .hbox_buttom Button{
-    -fx-max-width: 300px;
-    -fx-max-height: 60px;
     -fx-background-radius: 40;
     -fx-background-color: #000000;
-    -fx-font-size: 2.5em; 
+    -fx-font-size: 2.5em;
     -fx-font-family: "Myriad Pro";
     -fx-fill: #ffffff;
     -fx-font-weight: bold;
-    -fx-margin: 200px;
 }
 
 .hbox_buttom AnchorPane{
@@ -70,7 +67,7 @@
 }
 
 .hbox_arch_pane_label_text{
-    -fx-font-size: 1.5em; 
+    -fx-font-size: 2em;
     -fx-font-family: "Myriad Pro";
     -fx-font-weight: bold;
 }

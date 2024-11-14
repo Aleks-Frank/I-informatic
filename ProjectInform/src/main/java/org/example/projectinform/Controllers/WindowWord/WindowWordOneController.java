@@ -20,6 +20,9 @@ public class WindowWordOneController implements Initializable {
     private Button closeButton;
 
     @FXML
+    private Button settingsButton;
+
+    @FXML
     private Button taskEightWord;
 
     @FXML
@@ -55,9 +58,10 @@ public class WindowWordOneController implements Initializable {
 
         SpecialMethodsClass.returnMenuWindow(backMenuStudent);
 
-        SpecialMethodsClass.closeWindow(closeButton);
+        SpecialMethodsClass.switchSettings(settingsButton, "/Fxml/WindowWord/SettingsWindowWord.fxml");
 
         SpecialMethodsClass.switchWindow(nextWindow, "/Fxml/WindowWord/WindowWordControlWorkOne.fxml");
 
+        SpecialMethodsClass.closeWindow(closeButton);
     }
 }

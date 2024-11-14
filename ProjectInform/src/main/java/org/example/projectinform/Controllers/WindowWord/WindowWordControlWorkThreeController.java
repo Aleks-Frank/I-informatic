@@ -29,9 +29,14 @@ public class WindowWordControlWorkThreeController implements Initializable {
     @FXML
     private Button nextWindow;
 
+    @FXML
+    private Button settingsButton;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         SpecialMethodsClass.returnMenuWindow(backMenuStudent);
+
+        SpecialMethodsClass.switchSettings(settingsButton, "/Fxml/WindowWord/SettingsWindowWord.fxml");
 
         SpecialMethodsClass.switchWindow(nextWindow, "/Fxml/WindowWord/WindowWordFour.fxml");
 

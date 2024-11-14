@@ -38,6 +38,9 @@ public class WindowWordTwoController implements Initializable {
     @FXML
     private Button taskTwoWord;
 
+    @FXML
+    private Button settingsButton;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         SpecialMethodsClass.returnMenuWindow(backMenuStudent);
@@ -45,6 +48,8 @@ public class WindowWordTwoController implements Initializable {
         SpecialMethodsClass.switchWindow(nextWindow, "/Fxml/WindowWord/WindowWordControlWorkTwo.fxml");
 
         SpecialMethodsClass.switchWindow(lastWindow, "/Fxml/WindowWord/WindowWordControlWorkOne.fxml");
+
+        SpecialMethodsClass.switchSettings(settingsButton, "/Fxml/WindowWord/SettingsWindowWord.fxml");
 
         SpecialMethodsClass.closeWindow(closeButton);
     }

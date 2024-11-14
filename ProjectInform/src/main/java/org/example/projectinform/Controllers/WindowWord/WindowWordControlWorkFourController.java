@@ -29,11 +29,16 @@ public class WindowWordControlWorkFourController implements Initializable {
     @FXML
     private Button nextWindow;
 
+    @FXML
+    private Button settingsButton;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         SpecialMethodsClass.returnMenuWindow(backMenuStudent);
 
-        SpecialMethodsClass.switchWindow(nextWindow, "/Fxml/WindowWord/WindowWordFife.fxml");
+        SpecialMethodsClass.switchSettings(settingsButton, "/Fxml/WindowWord/SettingsWindowWord.fxml");
+
+        SpecialMethodsClass.switchWindow(nextWindow, "/Fxml/WindowWord/WindowWordFive.fxml");
 
         SpecialMethodsClass.switchWindow(lastWindow, "/Fxml/WindowWord/WindowWordFour.fxml");
 

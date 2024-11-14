@@ -16,6 +16,9 @@ public class SpecialMethodsClass {
     @Setter
     private static Stage primaryStage;
 
+    @Setter
+    private static Stage settingStage;
+
     public static void switchWindow(Button button, String path){
         button.setOnAction(event -> {
             try {
@@ -33,6 +36,8 @@ public class SpecialMethodsClass {
     public static void switchSettings(Button button, String path) {
         button.setOnAction(event -> {
             try {
+                Stage primaryStage = (Stage) button.getScene().getWindow();
+
                 FXMLLoader loader = new FXMLLoader(SpecialMethodsClass.class.getResource(path));
                 Parent newRoot = loader.load();
                 Stage settingsStage = new Stage();
@@ -40,8 +45,24 @@ public class SpecialMethodsClass {
                 settingsStage.initStyle(StageStyle.UNDECORATED);
                 settingsStage.initModality(Modality.WINDOW_MODAL);
                 settingsStage.setScene(new Scene(newRoot));
+                settingStage = settingsStage;
 
                 settingsStage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    public static void switchFromSettingsToTheWindow(Button button, String nextWindowPath) {
+        button.setOnAction(event -> {
+            settingStage.close();
+
+            try {
+                FXMLLoader loader = new FXMLLoader(SpecialMethodsClass.class.getResource(nextWindowPath));
+                Parent newRoot = loader.load();
+                Scene scene = new Scene(newRoot);
+                primaryStage.setScene(scene);
             } catch (IOException e) {
                 e.printStackTrace();
             }

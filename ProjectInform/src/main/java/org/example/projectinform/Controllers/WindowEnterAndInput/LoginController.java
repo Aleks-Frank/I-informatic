@@ -51,6 +51,8 @@ public class LoginController implements Initializable {
 
         SpecialMethodsClass.switchWindow(registrationInput, "/Fxml/WindowEnterAndInput/Registration.fxml");
 
+        SpecialMethodsClass.switchSettings(settingsButton, "/Fxml/WindowEnterAndInput/LoginSettings.fxml");
+
         SpecialMethodsClass.closeWindow(closeButton);
 
     }

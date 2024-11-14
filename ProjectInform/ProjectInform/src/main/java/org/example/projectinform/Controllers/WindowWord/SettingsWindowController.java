@@ -3,6 +3,8 @@ package org.example.projectinform.Controllers.WindowWord;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
+import lombok.Setter;
 import org.example.projectinform.SpecialMethods.SpecialMethodsClass;
 
 import java.net.URL;
@@ -17,7 +19,8 @@ public class SettingsWindowController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        SpecialMethodsClass.switchWindow(enterMenuGames, "/Fxml/WindowGame/WindowGameModePlayOne.fxml");
+
+        SpecialMethodsClass.switchFromSettingsToTheWindow(enterMenuGames, "/Fxml/WindowGame/WindowGameModePlayOne.fxml");
 
         SpecialMethodsClass.closeWindow(exitMenuPause);
     }
