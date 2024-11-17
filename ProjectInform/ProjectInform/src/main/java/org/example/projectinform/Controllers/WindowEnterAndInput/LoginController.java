@@ -7,6 +7,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import org.example.projectinform.Dictionaries.DictionaryPath;
 import org.example.projectinform.SpecialMethods.SpecialMethodsClass;
 
 import java.net.URL;
@@ -47,11 +48,12 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        SpecialMethodsClass.switchWindow(enter, "/Fxml/Student/StudentMenu.fxml");
 
-        SpecialMethodsClass.switchWindow(registrationInput, "/Fxml/WindowEnterAndInput/Registration.fxml");
+        SpecialMethodsClass.switchWindow(enter, DictionaryPath.STUDENT_MENU);
 
-        SpecialMethodsClass.switchSettings(settingsButton, "/Fxml/WindowEnterAndInput/LoginSettings.fxml");
+        SpecialMethodsClass.switchWindow(registrationInput, DictionaryPath.REGISTRATION);
+
+        SpecialMethodsClass.switchSettings(settingsButton, DictionaryPath.LOGIN_SETTINGS);
 
         SpecialMethodsClass.closeWindow(closeButton);
 

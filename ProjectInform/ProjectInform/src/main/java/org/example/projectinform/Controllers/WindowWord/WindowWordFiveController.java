@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import org.example.projectinform.Dictionaries.DictionaryPath;
 import org.example.projectinform.SpecialMethods.SpecialMethodsClass;
 
 import java.net.URL;
@@ -39,9 +40,9 @@ public class WindowWordFiveController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         SpecialMethodsClass.returnMenuWindow(backMenuStudent);
 
-        SpecialMethodsClass.switchSettings(settingsButton, "/Fxml/WindowWord/SettingsWindowWord.fxml");
+        SpecialMethodsClass.switchSettings(settingsButton, DictionaryPath.SETTINGS_WINDOW_WORD);
 
-        SpecialMethodsClass.switchWindow(lastWindow, "/Fxml/WindowWord/WindowWordControlWorkFour.fxml");
+        SpecialMethodsClass.switchWindow(lastWindow, DictionaryPath.WINDOW_WORD_CONTROL_WORK_FOUR);
 
         SpecialMethodsClass.closeWindow(closeButton);
     }

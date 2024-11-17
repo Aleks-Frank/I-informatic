@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 
 import javafx.stage.Stage;
+import org.example.projectinform.Dictionaries.DictionaryPath;
 import org.example.projectinform.SpecialMethods.SpecialMethodsClass;
 
 import java.io.IOException;
@@ -24,7 +25,7 @@ public class SettingsMenuController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        SpecialMethodsClass.switchWindow(enterMenuGames, "/Fxml/WindowGame/WindowGameModePlayOne.fxml");
+        SpecialMethodsClass.switchFromSettingsToTheWindow(enterMenuGames, DictionaryPath.WINDOW_GAME_MODE_PLAY_ONE);
 
         SpecialMethodsClass.closeWindow(exitMenuPause);
     }

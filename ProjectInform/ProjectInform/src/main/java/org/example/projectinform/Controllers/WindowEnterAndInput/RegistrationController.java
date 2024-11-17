@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import org.example.projectinform.Dictionaries.DictionaryPath;
 import org.example.projectinform.SpecialMethods.SpecialMethodsClass;
 
 import java.net.URL;
@@ -44,11 +45,12 @@ public class RegistrationController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        SpecialMethodsClass.switchWindow(registrationEnter, "/Fxml/WindowEnterAndInput/Login.fxml");
 
-        SpecialMethodsClass.switchWindow(backLogin, "/Fxml/WindowEnterAndInput/Login.fxml");
+        SpecialMethodsClass.switchWindow(registrationEnter, DictionaryPath.LOGIN);
 
-        SpecialMethodsClass.switchSettings(settingsButton, "/Fxml/WindowEnterAndInput/LoginSettings.fxml");
+        SpecialMethodsClass.switchSettings(settingsButton, DictionaryPath.LOGIN_SETTINGS);
+
+        SpecialMethodsClass.switchWindow(backLogin, DictionaryPath.LOGIN);
 
         SpecialMethodsClass.closeWindow(closeButton);
     }

@@ -3,6 +3,7 @@ package org.example.projectinform.Controllers.WindowWord;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import org.example.projectinform.Dictionaries.DictionaryPath;
 import org.example.projectinform.SpecialMethods.SpecialMethodsClass;
 
 import java.net.URL;
@@ -58,9 +59,9 @@ public class WindowWordOneController implements Initializable {
 
         SpecialMethodsClass.returnMenuWindow(backMenuStudent);
 
-        SpecialMethodsClass.switchSettings(settingsButton, "/Fxml/WindowWord/SettingsWindowWord.fxml");
+        SpecialMethodsClass.switchSettings(settingsButton, DictionaryPath.SETTINGS_WINDOW_WORD);
 
-        SpecialMethodsClass.switchWindow(nextWindow, "/Fxml/WindowWord/WindowWordControlWorkOne.fxml");
+        SpecialMethodsClass.switchWindow(nextWindow, DictionaryPath.WINDOW_WORD_CONTROL_WORK_ONE);
 
         SpecialMethodsClass.closeWindow(closeButton);
     }

@@ -15,7 +15,7 @@
       <children>
          <HBox alignment="CENTER" prefHeight="129.0" prefWidth="863.0">
             <children>
-               <Button fx:id="settingsButton" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" styleClass="button_preferens">
+               <Button fx:id="settingsGame" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" styleClass="button_preferens">
                   <graphic>
                      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                         <image>

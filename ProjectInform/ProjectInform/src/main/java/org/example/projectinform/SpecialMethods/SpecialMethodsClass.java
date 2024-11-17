@@ -36,8 +36,6 @@ public class SpecialMethodsClass {
     public static void switchSettings(Button button, String path) {
         button.setOnAction(event -> {
             try {
-                Stage primaryStage = (Stage) button.getScene().getWindow();
-
                 FXMLLoader loader = new FXMLLoader(SpecialMethodsClass.class.getResource(path));
                 Parent newRoot = loader.load();
                 Stage settingsStage = new Stage();
@@ -46,7 +44,6 @@ public class SpecialMethodsClass {
                 settingsStage.initModality(Modality.WINDOW_MODAL);
                 settingsStage.setScene(new Scene(newRoot));
                 settingStage = settingsStage;
-
                 settingsStage.show();
             } catch (IOException e) {
                 e.printStackTrace();

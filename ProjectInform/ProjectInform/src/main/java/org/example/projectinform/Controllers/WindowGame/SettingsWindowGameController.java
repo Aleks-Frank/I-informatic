@@ -9,7 +9,10 @@ import org.example.projectinform.SpecialMethods.SpecialMethodsClass;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class WindowGameNotEnoughCoins implements Initializable {
+public class SettingsWindowGameController implements Initializable {
+
+    @FXML
+    private Button exitMenuPause;
 
     @FXML
     private Button exitStudentMenu;
@@ -17,5 +20,7 @@ public class WindowGameNotEnoughCoins implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         SpecialMethodsClass.switchFromSettingsToTheWindow(exitStudentMenu, DictionaryPath.STUDENT_MENU);
+
+        SpecialMethodsClass.closeWindow(exitMenuPause);
     }
 }

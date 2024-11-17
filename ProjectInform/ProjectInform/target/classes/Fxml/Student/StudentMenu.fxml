@@ -16,7 +16,7 @@
          <children>
             <HBox alignment="CENTER" prefHeight="129.0" prefWidth="863.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" styleClass="button_preferens">
+                  <Button fx:id="settingsButton" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" styleClass="button_preferens">
                      <graphic>
                         <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -53,7 +53,7 @@
                               <Insets bottom="10.0" top="10.0" />
                            </VBox.margin>
                         </Button>
-                        <Button fx:id="powerpoint_next_str" mnemonicParsing="false" prefHeight="80.0" prefWidth="456.0" styleClass="vbox_but" text="Глава 2: PowerPoint">
+                        <Button fx:id="nextGameWindow" mnemonicParsing="false" prefHeight="80.0" prefWidth="255.0" styleClass="vbox_but" text="Игры">
                            <VBox.margin>
                               <Insets bottom="10.0" top="10.0" />
                            </VBox.margin>
@@ -67,7 +67,7 @@
                   <Insets bottom="20.0" top="20.0" />
                </padding>
                <children>
-                  <Button fx:id="backMenuStr" alignment="CENTER" mnemonicParsing="false" prefWidth="240.0" styleClass="anchor_pane_bottom" text="Назад" />
+                  <Button fx:id="logOutProfile" alignment="CENTER" mnemonicParsing="false" prefWidth="240.0" styleClass="anchor_pane_bottom" text="Выход" />
                </children>
             </HBox>
          </children>

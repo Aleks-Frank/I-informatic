@@ -3,13 +3,14 @@ package org.example.projectinform.Controllers.WindowGame;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import org.example.projectinform.Dictionaries.DictionaryPath;
 import org.example.projectinform.SpecialMethods.SpecialMethodsClass;
 
 import java.io.IOException;
@@ -18,29 +19,32 @@ import java.util.ResourceBundle;
 
 public class WindowGameModePlayOneController implements Initializable {
 
-
     @FXML
-    private Button backMenuStudent;
+    private Button playInGameOne;
 
     @FXML
     private Button closeButton;
 
     @FXML
-    private Label count;
+    private Button backMenuStudent;
 
     @FXML
     private Button nextWindow;
 
     @FXML
-    private Button playInGameOne;
-
-    @FXML
-    private Button settingsButton;
+    private Button settingsGame;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        SpecialMethodsClass.switchSettings(settingsButton, "/Fxml/WindowGame/SettingsGameWindow.fxml");
+        SpecialMethodsClass.switchSettings(playInGameOne, DictionaryPath.WINDOW_GAME_ENTER_IN_GAME);
 
+        SpecialMethodsClass.switchWindow(backMenuStudent, DictionaryPath.STUDENT_MENU);
+
+        SpecialMethodsClass.switchSettings(settingsGame, DictionaryPath.SETTINGS_WINDOW_GAME);
+
+        SpecialMethodsClass.switchWindow(nextWindow, DictionaryPath.WINDOW_GAME_MODE_PLAY_TWO);
+
+        SpecialMethodsClass.closeWindow(closeButton);
     }
 }

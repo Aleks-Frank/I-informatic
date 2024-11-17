@@ -22,7 +22,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="20.0" prefWidth="191.0" styleClass="anchor_pane_bottom" stylesheets="@../../Styles/styles.css" text="Начальное окно">
+            <Button fx:id="exitStudentMenu" mnemonicParsing="false" prefHeight="20.0" prefWidth="191.0" styleClass="anchor_pane_bottom" stylesheets="@../../Styles/styles.css" text="Начальное окно">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
