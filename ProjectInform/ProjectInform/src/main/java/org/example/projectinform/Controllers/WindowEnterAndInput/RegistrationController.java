@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import org.example.projectinform.Controllers.Entity.ChoiceBoxController;
 import org.example.projectinform.Dictionaries.DictionaryPath;
 import org.example.projectinform.SpecialMethods.SpecialMethodsClass;
 
@@ -38,7 +39,7 @@ public class RegistrationController implements Initializable {
     private Button registrationEnter;
 
     @FXML
-    private ChoiceBox<?> roleStud;
+    private ChoiceBox<String> roleStud;
 
     @FXML
     private Button settingsButton;
@@ -46,7 +47,9 @@ public class RegistrationController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        SpecialMethodsClass.switchWindow(registrationEnter, DictionaryPath.LOGIN);
+        ChoiceBoxController.setOptions(roleStud);
+
+        SpecialMethodsClass.registrationStudent(registrationEnter, DictionaryPath.LOGIN, firstNameStud, lastNameStud, roleStud, classStud, loginStud, passwordStud);
 
         SpecialMethodsClass.switchSettings(settingsButton, DictionaryPath.LOGIN_SETTINGS);
 

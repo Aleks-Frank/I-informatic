@@ -6,6 +6,7 @@ module org.example.projectinform {
     requires org.xerial.sqlitejdbc;
     requires java.desktop;
     requires static lombok;
+    requires ormlite.jdbc;
 
 
     exports org.example.projectinform;
@@ -18,4 +19,6 @@ module org.example.projectinform {
     opens org.example.projectinform.Controllers.WindowGame to javafx.fxml;
     exports org.example.projectinform.Controllers.WindowEnterAndInput;
     opens org.example.projectinform.Controllers.WindowEnterAndInput to javafx.fxml;
+    exports org.example.projectinform.DBRepository.Entity;
+    opens org.example.projectinform.DBRepository.Entity;
 }

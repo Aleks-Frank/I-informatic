@@ -78,10 +78,9 @@
                             </HBox>
                         </children>
                         <HBox.margin>
-                            <Insets left="50.0" right="60.0" />
+                            <Insets left="50.0" right="120.0" />
                         </HBox.margin>
                     </VBox>
-                    <Button fx:id="nextWindow" mnemonicParsing="false" prefHeight="86.0" prefWidth="50.0" styleClass="transparent-button" />
                 </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="110.0" prefWidth="863.0" styleClass="hbox_buttom">

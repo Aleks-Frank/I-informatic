@@ -7,6 +7,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import org.example.projectinform.Controllers.Entity.ChoiceBoxController;
 import org.example.projectinform.Dictionaries.DictionaryPath;
 import org.example.projectinform.SpecialMethods.SpecialMethodsClass;
 
@@ -14,7 +15,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
-
 
     @FXML
     private Button enter;
@@ -41,7 +41,7 @@ public class LoginController implements Initializable {
     private Button registrationInput;
 
     @FXML
-    private ChoiceBox<?> roleStud;
+    private ChoiceBox<String> roleStud;
 
     @FXML
     private Button settingsButton;
@@ -49,7 +49,13 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        SpecialMethodsClass.switchWindow(enter, DictionaryPath.STUDENT_MENU);
+        ChoiceBoxController.setOptions(roleStud);
+
+        errorMessage.setVisible(false);
+
+        SpecialMethodsClass.loginStudent(enter, DictionaryPath.STUDENT_MENU, roleStud, classStud, loginStud, passwordStud, errorMessage);
+
+//        SpecialMethodsClass.switchWindow(enter, DictionaryPath.STUDENT_MENU);
 
         SpecialMethodsClass.switchWindow(registrationInput, DictionaryPath.REGISTRATION);
 
