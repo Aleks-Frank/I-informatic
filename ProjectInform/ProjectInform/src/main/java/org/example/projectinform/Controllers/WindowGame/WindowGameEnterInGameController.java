@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import org.example.projectinform.Dictionaries.DictionaryPath;
 import org.example.projectinform.SpecialMethods.SpecialMethodsClass;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -29,6 +30,7 @@ public class WindowGameEnterInGameController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         SpecialMethodsClass.closeWindow(closeSettingsGame);
 
-      //  SpecialMethodsClass.switchWindow(acceptGame);
+        SpecialMethodsClass.startGameDragonPicker(acceptGame);
+
     }
 }

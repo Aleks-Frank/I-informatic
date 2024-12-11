@@ -15,6 +15,7 @@ import org.example.projectinform.DBRepository.DBRepositoryController;
 import org.example.projectinform.DBRepository.Entity.Student;
 import org.example.projectinform.GlobalStudent.GlobalStudentUser;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -169,4 +170,22 @@ public class SpecialMethodsClass {
 
         dbRepositoryController.close();
     }
+
+    public static void startGameDragonPicker(Button button){
+        button.setOnAction(event -> {
+            String relativePath = "games/DragonPicker/BuildTwo/DragonPicker.exe";
+            File gameFile = new File(relativePath);
+            if (gameFile.exists()) {
+                try {
+                    ProcessBuilder processBuilder = new ProcessBuilder(relativePath);
+                    processBuilder.start();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                System.out.println("Не удается найти указанный файл: " + relativePath);
+            }
+        });
+    }
+
 }
