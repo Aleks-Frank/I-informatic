@@ -64,5 +64,7 @@ public class WindowWordOneController implements Initializable {
         SpecialMethodsClass.switchWindow(nextWindow, DictionaryPath.WINDOW_WORD_CONTROL_WORK_ONE);
 
         SpecialMethodsClass.closeWindow(closeButton);
+
+        SpecialMethodsClass.openWordFileOnButton(taskOneWord);
     }
 }

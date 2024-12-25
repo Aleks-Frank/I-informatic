@@ -13,6 +13,7 @@ import javafx.stage.StageStyle;
 import lombok.Setter;
 import org.example.projectinform.DBRepository.DBRepositoryController;
 import org.example.projectinform.DBRepository.Entity.Student;
+import org.example.projectinform.FileWorker.CreateAndOpenFileWord;
 import org.example.projectinform.GlobalStudent.GlobalStudentUser;
 
 import java.io.File;
@@ -116,7 +117,7 @@ public class SpecialMethodsClass {
                 Stage stage = (Stage) button.getScene().getWindow();
                 stage.setScene(scene);
             } catch (Exception e) {
-                throw new RuntimeException(e);
+                System.out.println("Значение введино не верно");
             }
         });
     }
@@ -141,7 +142,7 @@ public class SpecialMethodsClass {
             try{
                 loginUser(button, roleStudentBox, classStudentText, loginStudentText, passwordStudentText, path, message);
             } catch (Exception e) {
-                throw new RuntimeException(e);
+                System.out.print("Пользователя нет в базе данных");
             }
 
         });
@@ -185,6 +186,12 @@ public class SpecialMethodsClass {
             } else {
                 System.out.println("Не удается найти указанный файл: " + relativePath);
             }
+        });
+    }
+
+    public static void openWordFileOnButton(Button button){
+        button.setOnAction(event -> {
+            CreateAndOpenFileWord.createNewWordFile();
         });
     }
 

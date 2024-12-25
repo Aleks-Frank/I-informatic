@@ -48,7 +48,7 @@ public class DictionaryPath {
 
     public static final String WINDOW_WORD_TWO = "/Fxml/WindowWord/WindowWordTwo.fxml";
 
-    public static final String WINDOW_WORD_INFO_TASK = "/Fxml/WindowWord/WindowWordInfoTask.fxml";
+    public static final String WINDOW_WORD_INFO_TASK = "/Fxml/WindowWordInfoTasks/WindowWordInfoTask.fxml";
 
     public static final String SETTINGS_WINDOW_GAME = "/Fxml/WindowGame/SettingsWindowGame.fxml";
 }

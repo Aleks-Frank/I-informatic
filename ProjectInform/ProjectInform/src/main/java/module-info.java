@@ -4,9 +4,10 @@ module org.example.projectinform {
     requires de.jensd.fx.glyphs.fontawesome;
     requires java.sql;
     requires org.xerial.sqlitejdbc;
-    requires java.desktop;
     requires static lombok;
     requires ormlite.jdbc;
+    requires org.apache.poi.ooxml;
+    requires java.desktop;
 
 
     exports org.example.projectinform;
