@@ -31,7 +31,7 @@ public class StudentMenuController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        SpecialMethodsClass.switchWindow(logOutProfile, DictionaryPath.LOGIN);
+        SpecialMethodsClass.switchWindowBackLogin(logOutProfile, DictionaryPath.LOGIN);
 
         SpecialMethodsClass.switchWindow(wordNextStr, DictionaryPath.WINDOW_WORD_ONE);
 

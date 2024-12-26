@@ -11,7 +11,7 @@ import org.example.projectinform.DBRepository.Entity.Student;
 import java.sql.SQLException;
 
 @Data
-public class DBRepositoryController {
+public class StudentDBRepositoryController {
 
     private final static String URL_DB = SearchPath.SearchPathDB();
 

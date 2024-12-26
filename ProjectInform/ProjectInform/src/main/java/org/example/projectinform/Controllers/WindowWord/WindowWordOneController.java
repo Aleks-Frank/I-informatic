@@ -3,6 +3,7 @@ package org.example.projectinform.Controllers.WindowWord;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import org.example.projectinform.Dictionaries.DictionaryPath;
 import org.example.projectinform.SpecialMethods.SpecialMethodsClass;
 
@@ -42,6 +43,9 @@ public class WindowWordOneController implements Initializable {
     private Button taskSevenWord;
 
     @FXML
+    private Label countCoins;
+
+    @FXML
     private Button taskSixWord;
 
     @FXML
@@ -65,6 +69,8 @@ public class WindowWordOneController implements Initializable {
 
         SpecialMethodsClass.closeWindow(closeButton);
 
-        SpecialMethodsClass.openWordFileOnButton(taskOneWord);
+        SpecialMethodsClass.switchInfoWord(taskOneWord, DictionaryPath.WINDOW_WORD_INFO_TASK, "Word_1");
+
+        SpecialMethodsClass.viewCountCoins(countCoins);
     }
 }

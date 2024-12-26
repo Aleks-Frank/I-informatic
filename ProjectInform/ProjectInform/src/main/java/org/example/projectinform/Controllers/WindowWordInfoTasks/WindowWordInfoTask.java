@@ -29,5 +29,11 @@ public class WindowWordInfoTask implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        SpecialMethodsClass.closeInfo(backButton);
+
+        SpecialMethodsClass.openWordFileOnButton(startButton);
+
+        SpecialMethodsClass.setTasksInfo(numberTask, nameTask, countCoinsTask);
+
     }
 }

@@ -103,7 +103,7 @@
                      </Button>
                      <AnchorPane prefHeight="26.0" prefWidth="326.0">
                         <children>
-                           <Label alignment="CENTER" layoutX="130.0" layoutY="22.0" prefHeight="35.0" prefWidth="175.0" styleClass="hbox_arch_pane_label_text" text="0" textFill="WHITE" AnchorPane.bottomAnchor="22.4" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="20.799999999999983" AnchorPane.topAnchor="22.0" />
+                           <Label fx:id="countCoins" alignment="CENTER" layoutX="130.0" layoutY="22.0" prefHeight="35.0" prefWidth="175.0" styleClass="hbox_arch_pane_label_text" text="0" textFill="WHITE" AnchorPane.bottomAnchor="22.4" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="20.799999999999983" AnchorPane.topAnchor="22.0" />
                            <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                               <image>
                                  <Image url="@../../Paints/I.png" />

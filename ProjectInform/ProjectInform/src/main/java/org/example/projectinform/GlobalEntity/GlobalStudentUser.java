@@ -1,4 +1,4 @@
-package org.example.projectinform.GlobalStudent;
+package org.example.projectinform.GlobalEntity;
 
 import lombok.Data;
 import lombok.Setter;

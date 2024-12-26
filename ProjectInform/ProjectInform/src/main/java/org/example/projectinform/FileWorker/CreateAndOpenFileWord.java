@@ -1,6 +1,7 @@
 package org.example.projectinform.FileWorker;
 
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
+import org.example.projectinform.GlobalEntity.GlobalStudentUser;
 
 import java.io.File;
 import java.awt.Desktop;
@@ -9,9 +10,28 @@ import java.io.IOException;
 
 public class CreateAndOpenFileWord {
 
-    private static final String urlFile = "src/main/resources/File/file.docx";
+    private static String nameUser;
 
-    public static void createNewWordFile(){
+    private static String urlFile;
+
+    private static String lastNameUser;
+
+    public static void workerFileWord(){
+
+        nameUser = GlobalStudentUser.globalStudent.getFirstName();
+        lastNameUser = GlobalStudentUser.globalStudent.getLastName();
+        urlFile = "src/main/resources/File/File_" + nameUser + "_" + lastNameUser + ".docx";
+        File file = new File(urlFile);
+
+        if (file.exists()){
+            openWordFile();
+        } else {
+            createNewWordFile();
+        }
+
+    }
+
+    private static void createNewWordFile(){
 
         XWPFDocument document = new XWPFDocument();
 
@@ -24,7 +44,7 @@ public class CreateAndOpenFileWord {
 
     }
 
-    public static void openWordFile(){
+    private static void openWordFile(){
 
         File file = new File(urlFile);
 

@@ -11,14 +11,18 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import lombok.Setter;
-import org.example.projectinform.DBRepository.DBRepositoryController;
+import org.example.projectinform.DBRepository.Entity.Tasks;
+import org.example.projectinform.DBRepository.StudentDBRepositoryController;
 import org.example.projectinform.DBRepository.Entity.Student;
+import org.example.projectinform.DBRepository.TasksDBRepositoryController;
 import org.example.projectinform.FileWorker.CreateAndOpenFileWord;
-import org.example.projectinform.GlobalStudent.GlobalStudentUser;
+import org.example.projectinform.GlobalEntity.GlobalStudentUser;
+import org.example.projectinform.GlobalEntity.GlobalTasks;
 
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.MessageFormat;
 
 public class SpecialMethodsClass {
 
@@ -31,6 +35,21 @@ public class SpecialMethodsClass {
     public static void switchWindow(Button button, String path){
         button.setOnAction(event -> {
             try {
+                FXMLLoader loader = new FXMLLoader(SpecialMethodsClass.class.getResource(path));
+                Parent root = loader.load();
+                Scene scene = new Scene(root);
+                Stage stage = (Stage) button.getScene().getWindow();
+                stage.setScene(scene);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    public static void switchWindowBackLogin(Button button, String path){
+        button.setOnAction(event -> {
+            try {
+                GlobalStudentUser.globalStudent = null;
                 FXMLLoader loader = new FXMLLoader(SpecialMethodsClass.class.getResource(path));
                 Parent root = loader.load();
                 Scene scene = new Scene(root);
@@ -123,7 +142,7 @@ public class SpecialMethodsClass {
     }
 
     private static void registrationUser(String name, String lastName, String role, String classStudent, String login, String password) throws Exception {
-        DBRepositoryController dbRepositoryController = new DBRepositoryController();
+        StudentDBRepositoryController dbRepositoryController = new StudentDBRepositoryController();
 
         dbRepositoryController.connect();
         Student student = new Student(name, lastName, role, Integer.parseInt(classStudent), login, password);
@@ -150,12 +169,13 @@ public class SpecialMethodsClass {
 
     private static void loginUser(Button button, String roleStudentBox, String classStudentText, String loginStudentText, String passwordStudentText,
                                   String path, Label message) throws Exception {
-        DBRepositoryController dbRepositoryController = new DBRepositoryController();
+        StudentDBRepositoryController dbRepositoryController = new StudentDBRepositoryController();
 
         dbRepositoryController.connect();
         Student student = dbRepositoryController.getStudentByFourParameters(roleStudentBox, Integer.parseInt(classStudentText), loginStudentText, passwordStudentText);
         if(student != null) {
             GlobalStudentUser.globalStudent = student;
+            System.out.println(GlobalStudentUser.globalStudent.getFirstName());
             try {
                 FXMLLoader loader = new FXMLLoader(SpecialMethodsClass.class.getResource(path));
                 Parent root = loader.load();
@@ -191,8 +211,57 @@ public class SpecialMethodsClass {
 
     public static void openWordFileOnButton(Button button){
         button.setOnAction(event -> {
-            CreateAndOpenFileWord.createNewWordFile();
+            CreateAndOpenFileWord.workerFileWord();
+            if (settingStage != null && settingStage.isShowing()){
+                settingStage.close();
+            }
         });
+    }
+
+    public static void closeInfo(Button button){
+        button.setOnAction(event -> {
+            settingStage.close();
+        });
+    }
+
+    public static void viewCountCoins(Label label){
+        label.setText(String.valueOf(GlobalStudentUser.globalStudent.getCountCoins()));
+    }
+
+    public static void switchInfoWord(Button button, String path, String id) {
+        button.setOnAction(event -> {
+            try {
+                getTasksInfo(id);
+                FXMLLoader loader = new FXMLLoader(SpecialMethodsClass.class.getResource(path));
+                Parent newRoot = loader.load();
+                Stage settingsStage = new Stage();
+                settingsStage.initOwner(primaryStage);
+                settingsStage.initStyle(StageStyle.UNDECORATED);
+                settingsStage.initModality(Modality.WINDOW_MODAL);
+                settingsStage.setScene(new Scene(newRoot));
+                settingStage = settingsStage;
+                settingsStage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        });
+    }
+
+    private static void getTasksInfo(String id) throws Exception {
+
+        TasksDBRepositoryController dbRepositoryController = new TasksDBRepositoryController();
+        dbRepositoryController.connect();
+        GlobalTasks.globalTasks = dbRepositoryController.getTasksById(id);
+        dbRepositoryController.close();
+
+    }
+
+    public static void setTasksInfo(Label numberTasks, Label nameTasks, Label countCoins){
+        numberTasks.setText(MessageFormat.format("Задание №{0}", GlobalTasks.globalTasks.idForNumberString()));
+        nameTasks.setText(GlobalTasks.globalTasks.getNameTasks());
+        countCoins.setText(MessageFormat.format("Стоимость: {0} инфокойнов", GlobalTasks.globalTasks.getCountCoins()));
     }
 
 }

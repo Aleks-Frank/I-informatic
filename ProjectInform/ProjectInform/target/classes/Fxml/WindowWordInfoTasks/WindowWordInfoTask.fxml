@@ -7,22 +7,22 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="320.0" prefWidth="480.0" styleClass="fon_container" stylesheets="@../../Styles/stylesWindowInfoTasksWord.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.projectinform.Controllers.WindowWordInfoTasks.WindowWordInfoTask">
+<AnchorPane prefHeight="384.0" prefWidth="576.0" styleClass="fon_container" stylesheets="@../../Styles/stylesWindowInfoTasksWord.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.projectinform.Controllers.WindowWordInfoTasks.WindowWordInfoTask">
    <children>
-      <VBox alignment="CENTER" layoutX="37.0" layoutY="39.0" prefHeight="243.0" prefWidth="406.0">
+      <VBox alignment="CENTER" layoutX="37.0" layoutY="39.0" prefHeight="310.0" prefWidth="499.0">
          <children>
             <Label fx:id="numberTask" styleClass="text_fon" text="Задание №1" textFill="#0d0d0d">
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin>
             </Label>
-            <Label prefHeight="38.0" prefWidth="406.0" styleClass="text_fon_task_name" text="Название:" textAlignment="CENTER" textFill="#0d0d0d" wrapText="true" />
-            <Label fx:id="nameTask" styleClass="text_fon_task_name" text="&quot;Первое предложение&quot;" textFill="#0d0d0d">
+            <Label prefHeight="78.0" prefWidth="406.0" styleClass="text_fon_task_name" text="Название:" textAlignment="CENTER" textFill="#0d0d0d" wrapText="true" />
+            <Label fx:id="nameTask" prefHeight="98.0" prefWidth="446.0" styleClass="text_fon_task_name" text="&quot;Первое предложение&quot;" textAlignment="CENTER" textFill="#0d0d0d" wrapText="true">
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin>
             </Label>
-            <Label fx:id="countCoinsTask" styleClass="text_fon_task_count_coints" text="Стоимость: 10 инфокойнов" textFill="#0d0d0d">
+            <Label fx:id="countCoinsTask" prefHeight="45.0" prefWidth="210.0" styleClass="text_fon_task_count_coints" text="Стоимость: 10 инфокойнов" textFill="#0d0d0d">
                <VBox.margin>
                   <Insets bottom="15.0" />
                </VBox.margin>
