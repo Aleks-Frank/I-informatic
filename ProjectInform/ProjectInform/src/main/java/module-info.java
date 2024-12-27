@@ -24,4 +24,6 @@ module org.example.projectinform {
     opens org.example.projectinform.DBRepository.Entity;
     exports org.example.projectinform.Controllers.WindowWordInfoTasks;
     opens org.example.projectinform.Controllers.WindowWordInfoTasks to javafx.fxml;
+    exports org.example.projectinform.Controllers.WindowIsCorrect;
+    opens org.example.projectinform.Controllers.WindowIsCorrect to javafx.fxml;
 }

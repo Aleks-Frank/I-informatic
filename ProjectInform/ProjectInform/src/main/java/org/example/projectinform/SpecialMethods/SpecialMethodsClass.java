@@ -1,13 +1,16 @@
 package org.example.projectinform.SpecialMethods;
 
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 import javafx.stage.Modality;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import lombok.Setter;
@@ -15,6 +18,7 @@ import org.example.projectinform.DBRepository.Entity.Tasks;
 import org.example.projectinform.DBRepository.StudentDBRepositoryController;
 import org.example.projectinform.DBRepository.Entity.Student;
 import org.example.projectinform.DBRepository.TasksDBRepositoryController;
+import org.example.projectinform.Dictionaries.DictionaryPath;
 import org.example.projectinform.FileWorker.CreateAndOpenFileWord;
 import org.example.projectinform.GlobalEntity.GlobalStudentUser;
 import org.example.projectinform.GlobalEntity.GlobalTasks;
@@ -31,6 +35,9 @@ public class SpecialMethodsClass {
 
     @Setter
     private static Stage settingStage;
+
+    @Setter
+    private static Stage currectSaveStage;
 
     public static void switchWindow(Button button, String path){
         button.setOnAction(event -> {
@@ -70,7 +77,11 @@ public class SpecialMethodsClass {
                 settingsStage.initOwner(primaryStage);
                 settingsStage.initStyle(StageStyle.UNDECORATED);
                 settingsStage.initModality(Modality.WINDOW_MODAL);
-                settingsStage.setScene(new Scene(newRoot));
+                Scene scene = new Scene(newRoot);
+                scene.setFill(Color.TRANSPARENT);
+                settingsStage.setScene(scene);
+                settingsStage.initStyle(StageStyle.TRANSPARENT);
+
                 settingStage = settingsStage;
                 settingsStage.show();
             } catch (IOException e) {
@@ -215,6 +226,7 @@ public class SpecialMethodsClass {
             if (settingStage != null && settingStage.isShowing()){
                 settingStage.close();
             }
+            openWindowCorrect();
         });
     }
 
@@ -238,7 +250,13 @@ public class SpecialMethodsClass {
                 settingsStage.initOwner(primaryStage);
                 settingsStage.initStyle(StageStyle.UNDECORATED);
                 settingsStage.initModality(Modality.WINDOW_MODAL);
-                settingsStage.setScene(new Scene(newRoot));
+                Scene scene = new Scene(newRoot);
+                settingsStage.setScene(scene);
+
+                scene.setFill(Color.TRANSPARENT);
+                settingsStage.setScene(scene);
+                settingsStage.initStyle(StageStyle.TRANSPARENT);
+
                 settingStage = settingsStage;
                 settingsStage.show();
             } catch (IOException e) {
@@ -262,6 +280,64 @@ public class SpecialMethodsClass {
         numberTasks.setText(MessageFormat.format("Задание №{0}", GlobalTasks.globalTasks.idForNumberString()));
         nameTasks.setText(GlobalTasks.globalTasks.getNameTasks());
         countCoins.setText(MessageFormat.format("Стоимость: {0} инфокойнов", GlobalTasks.globalTasks.getCountCoins()));
+    }
+
+    private static void openWindowCorrect(){
+        try {
+            FXMLLoader loader = new FXMLLoader(SpecialMethodsClass.class.getResource(DictionaryPath.WINDOW_IS_CORRECT));
+            Parent newRoot = loader.load();
+            Stage currectStage = new Stage();
+            currectStage.setAlwaysOnTop(true);
+
+            Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+            double screenWidth = primaryScreenBounds.getWidth();
+            double screenHeight = primaryScreenBounds.getHeight();
+
+            double x = screenWidth - 320; // Координата x для правого края
+            double y = screenHeight - 230; // Координата y для нижнего края
+
+            currectStage.setX(x);
+            currectStage.setY(y);
+            currectStage.setResizable(false);
+            currectStage.initOwner(primaryStage);
+            currectStage.initStyle(StageStyle.UNDECORATED);
+            currectStage.initModality(Modality.WINDOW_MODAL);
+            Scene newScene = new Scene(newRoot);
+            newScene.setFill(Color.TRANSPARENT);
+            currectStage.setScene(newScene);
+            currectStage.initStyle(StageStyle.TRANSPARENT);
+            currectSaveStage = currectStage;
+            currectStage.show();
+        }catch (Exception e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void setTasksInfo(Label label){
+        label.setText(GlobalTasks.globalTasks.getTasks());
+    }
+
+    public static void switchTasksInfo(Button button, String path) {
+        button.setOnAction(event -> {
+            try {
+                FXMLLoader loader = new FXMLLoader(SpecialMethodsClass.class.getResource(path));
+                Parent newRoot = loader.load();
+                Stage settingsStage = new Stage();
+                settingsStage.setAlwaysOnTop(true);
+                settingsStage.initOwner(primaryStage);
+                settingsStage.initStyle(StageStyle.UNDECORATED);
+                settingsStage.initModality(Modality.APPLICATION_MODAL);
+                Scene scene = new Scene(newRoot);
+                scene.setFill(Color.TRANSPARENT);
+                settingsStage.setScene(scene);
+                settingsStage.initStyle(StageStyle.TRANSPARENT);
+
+                settingStage = settingsStage;
+                settingsStage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
 }
