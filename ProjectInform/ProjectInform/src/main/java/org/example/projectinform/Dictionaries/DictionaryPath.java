@@ -51,4 +51,6 @@ public class DictionaryPath {
     public static final String WINDOW_WORD_INFO_TASK = "/Fxml/WindowWordInfoTasks/WindowWordInfoTask.fxml";
 
     public static final String SETTINGS_WINDOW_GAME = "/Fxml/WindowGame/SettingsWindowGame.fxml";
+
+    public static final String WINDOW_TASKS_RESULT = "/Fxml/WindowIsCorrect/WindowTasksResult.fxml";
 }

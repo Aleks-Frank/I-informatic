@@ -42,6 +42,9 @@ public class SpecialMethodsClass {
     @Setter
     private static Stage currectSaveStage;
 
+    @Setter
+    private static Stage resultSaveStage;
+
     public static void switchWindow(Button button, String path){
         button.setOnAction(event -> {
             try {
@@ -230,6 +233,7 @@ public class SpecialMethodsClass {
                 settingStage.close();
             }
             openWindowCorrect();
+            openWindowResultTask();
         });
     }
 
@@ -249,19 +253,19 @@ public class SpecialMethodsClass {
                 getTasksInfo(id);
                 FXMLLoader loader = new FXMLLoader(SpecialMethodsClass.class.getResource(path));
                 Parent newRoot = loader.load();
-                Stage settingsStage = new Stage();
-                settingsStage.initOwner(primaryStage);
-                settingsStage.initStyle(StageStyle.UNDECORATED);
-                settingsStage.initModality(Modality.WINDOW_MODAL);
+                Stage infoTaskStage = new Stage();
+                infoTaskStage.initOwner(primaryStage);
+                infoTaskStage.initStyle(StageStyle.UNDECORATED);
+                infoTaskStage.initModality(Modality.WINDOW_MODAL);
                 Scene scene = new Scene(newRoot);
-                settingsStage.setScene(scene);
+                infoTaskStage.setScene(scene);
 
                 scene.setFill(Color.TRANSPARENT);
-                settingsStage.setScene(scene);
-                settingsStage.initStyle(StageStyle.TRANSPARENT);
+                infoTaskStage.setScene(scene);
+                infoTaskStage.initStyle(StageStyle.TRANSPARENT);
 
-                settingStage = settingsStage;
-                settingsStage.show();
+                infoTasksSave = infoTaskStage;
+                infoTaskStage.show();
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (Exception e) {
@@ -350,12 +354,44 @@ public class SpecialMethodsClass {
                 currectSaveStage.setAlwaysOnTop(false);
                 infoTasksSave.hide();
                 currectSaveStage.hide();
+                resultSaveStage.hide();
                 primaryStage.show();
             }catch (Exception e){
                 throw new RuntimeException(e);
             }
         });
 
+    }
+
+    private static void openWindowResultTask(){
+        try {
+            FXMLLoader loader = new FXMLLoader(SpecialMethodsClass.class.getResource(DictionaryPath.WINDOW_TASKS_RESULT));
+            Parent newRoot = loader.load();
+            Stage resultStage = new Stage();
+            resultStage.setAlwaysOnTop(true);
+
+            Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+            double screenWidth = primaryScreenBounds.getWidth();
+            double screenHeight = primaryScreenBounds.getHeight();
+
+            double x = screenWidth - 1500; // Координата x для правого края
+            double y = screenHeight - 620; // Координата y для нижнего края
+
+            resultStage.setX(x);
+            resultStage.setY(y);
+            resultStage.setResizable(false);
+            resultStage.initOwner(primaryStage);
+            resultStage.initStyle(StageStyle.UNDECORATED);
+            resultStage.initModality(Modality.WINDOW_MODAL);
+            Scene newScene = new Scene(newRoot);
+            newScene.setFill(Color.TRANSPARENT);
+            resultStage.setScene(newScene);
+            resultStage.initStyle(StageStyle.TRANSPARENT);
+            resultSaveStage = resultStage;
+            resultStage.show();
+        }catch (Exception e){
+            throw new RuntimeException(e);
+        }
     }
 
 }
