@@ -37,6 +37,9 @@ public class SpecialMethodsClass {
     private static Stage settingStage;
 
     @Setter
+    private static Stage infoTasksSave;
+
+    @Setter
     private static Stage currectSaveStage;
 
     public static void switchWindow(Button button, String path){
@@ -232,7 +235,7 @@ public class SpecialMethodsClass {
 
     public static void closeInfo(Button button){
         button.setOnAction(event -> {
-            settingStage.close();
+            infoTasksSave.close();
         });
     }
 
@@ -307,6 +310,7 @@ public class SpecialMethodsClass {
             currectStage.setScene(newScene);
             currectStage.initStyle(StageStyle.TRANSPARENT);
             currectSaveStage = currectStage;
+            primaryStage.hide();
             currectStage.show();
         }catch (Exception e){
             throw new RuntimeException(e);
@@ -322,22 +326,36 @@ public class SpecialMethodsClass {
             try {
                 FXMLLoader loader = new FXMLLoader(SpecialMethodsClass.class.getResource(path));
                 Parent newRoot = loader.load();
-                Stage settingsStage = new Stage();
-                settingsStage.setAlwaysOnTop(true);
-                settingsStage.initOwner(primaryStage);
-                settingsStage.initStyle(StageStyle.UNDECORATED);
-                settingsStage.initModality(Modality.APPLICATION_MODAL);
+                Stage infoTaskStage = new Stage();
+                infoTaskStage.setAlwaysOnTop(true);
+                infoTaskStage.initOwner(primaryStage);
+                infoTaskStage.initStyle(StageStyle.UNDECORATED);
+                infoTaskStage.initModality(Modality.APPLICATION_MODAL);
                 Scene scene = new Scene(newRoot);
                 scene.setFill(Color.TRANSPARENT);
-                settingsStage.setScene(scene);
-                settingsStage.initStyle(StageStyle.TRANSPARENT);
+                infoTaskStage.setScene(scene);
+                infoTaskStage.initStyle(StageStyle.TRANSPARENT);
 
-                settingStage = settingsStage;
-                settingsStage.show();
+                infoTasksSave = infoTaskStage;
+                infoTaskStage.show();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         });
+    }
+
+    public static void quitTask(Button button){
+        button.setOnAction(event -> {
+            try{
+                currectSaveStage.setAlwaysOnTop(false);
+                infoTasksSave.hide();
+                currectSaveStage.hide();
+                primaryStage.show();
+            }catch (Exception e){
+                throw new RuntimeException(e);
+            }
+        });
+
     }
 
 }

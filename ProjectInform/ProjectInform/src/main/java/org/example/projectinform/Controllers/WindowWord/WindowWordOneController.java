@@ -71,7 +71,7 @@ public class WindowWordOneController implements Initializable {
 
         SpecialMethodsClass.switchInfoWord(taskTwoWord, DictionaryPath.WINDOW_WORD_INFO_TASK, "Word_2");
 
-        SpecialMethodsClass.switchInfoWord(taskOneWord, DictionaryPath.WINDOW_WORD_INFO_TASK, "Word_1");
+        SpecialMethodsClass.switchInfoWord(taskOneWord, DictionaryPath.WINDOW_WORD_INFO_TASK, "Word_11");
 
         SpecialMethodsClass.viewCountCoins(countCoins);
     }

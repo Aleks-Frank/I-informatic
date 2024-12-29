@@ -28,5 +28,7 @@ public class WindowTaskIsCorrect implements Initializable {
 
         SpecialMethodsClass.closeInfo(nextButton);
 
+        SpecialMethodsClass.quitTask(logOutButton);
+
     }
 }

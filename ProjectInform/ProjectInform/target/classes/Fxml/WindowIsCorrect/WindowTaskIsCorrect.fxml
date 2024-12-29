@@ -7,16 +7,16 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="fon_container" stylesheets="@../../Styles/stylesWindowTaskIsCorrectAll.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.projectinform.Controllers.WindowIsCorrect.WindowTaskIsCorrect">
+<AnchorPane maxHeight="Infinity" prefHeight="600.0" prefWidth="600.0" styleClass="fon_container" stylesheets="@../../Styles/stylesWindowTaskIsCorrectAll.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.projectinform.Controllers.WindowIsCorrect.WindowTaskIsCorrect">
     <children>
-        <VBox alignment="CENTER" layoutX="38.0" layoutY="36.0" prefHeight="328.0" prefWidth="524.0">
+        <VBox alignment="CENTER" layoutX="38.0" layoutY="36.0" maxHeight="Infinity" prefHeight="531.0" prefWidth="524.0">
             <children>
                 <Label styleClass="text_fon" text="Задание" textFill="#0d0d0d">
                     <VBox.margin>
                         <Insets bottom="10.0" />
                     </VBox.margin>
                 </Label>
-                <Label fx:id="taskInfo" prefHeight="408.0" prefWidth="495.0" styleClass="text_fon_task" text="Задание: напишите предложение «Мороз и солнце, день чудесный»" textAlignment="CENTER" textFill="#0d0d0d" wrapText="true">
+                <Label fx:id="taskInfo" maxHeight="Infinity" prefHeight="400.0" prefWidth="495.0" styleClass="text_fon_task" text="Задание: напишите предложение «Мороз и солнце, день чудесный»" textAlignment="CENTER" textFill="#0d0d0d" wrapText="true">
                     <VBox.margin>
                         <Insets bottom="10.0" top="10.0" />
                     </VBox.margin>

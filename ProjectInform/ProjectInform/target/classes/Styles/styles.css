@@ -36,9 +36,16 @@
 }
 
 .account_selector .label{
-    -fx-text-fill: #132A13;
     -fx-font-size: 1.1em;
     -fx-alignment: center;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    }
+}
+
+.account_selector .context-menu {
+    -fx-background-color: black; /* Цвет фона выпадающего окна черный */
+    -fx-alignment: center; /* Выравнивание по центру */
 }
 
 .account_selector .arrow{
