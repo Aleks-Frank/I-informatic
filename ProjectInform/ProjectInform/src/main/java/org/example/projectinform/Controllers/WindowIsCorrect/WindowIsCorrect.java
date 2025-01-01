@@ -20,5 +20,7 @@ public class WindowIsCorrect implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         SpecialMethodsClass.switchTasksInfo(getTaskInfo, DictionaryPath.WINDOW_TASK_IS_CORRECT);
+
+        SpecialMethodsClass.checkTasks(isCorrect);
     }
 }

@@ -22,6 +22,7 @@ import org.example.projectinform.Dictionaries.DictionaryPath;
 import org.example.projectinform.FileWorker.CreateAndOpenFileWord;
 import org.example.projectinform.GlobalEntity.GlobalStudentUser;
 import org.example.projectinform.GlobalEntity.GlobalTasks;
+import org.example.projectinform.WorkerCheckTask.WorkerCheckTask;
 
 import java.io.File;
 import java.io.IOException;
@@ -44,6 +45,12 @@ public class SpecialMethodsClass {
 
     @Setter
     private static Stage resultSaveStage;
+
+    @Setter
+    private static Stage winSaveStage;
+
+    @Setter
+    private static Stage failSaveStage;
 
     public static void switchWindow(Button button, String path){
         button.setOnAction(event -> {
@@ -289,6 +296,10 @@ public class SpecialMethodsClass {
         countCoins.setText(MessageFormat.format("Стоимость: {0} инфокойнов", GlobalTasks.globalTasks.getCountCoins()));
     }
 
+    public static void setCountInfoCoinsToWin(Label coinsToWin){
+        coinsToWin.setText(MessageFormat.format("Ты получил {0} инфокойнов", GlobalTasks.globalTasks.getCountCoins()));
+    }
+
     private static void openWindowCorrect(){
         try {
             FXMLLoader loader = new FXMLLoader(SpecialMethodsClass.class.getResource(DictionaryPath.WINDOW_IS_CORRECT));
@@ -360,6 +371,20 @@ public class SpecialMethodsClass {
                 throw new RuntimeException(e);
             }
         });
+    }
+
+    public static void quitTaskWin(Button button){
+        button.setOnAction(event -> {
+            try{
+                currectSaveStage.setAlwaysOnTop(false);
+                winSaveStage.hide();
+                currectSaveStage.hide();
+                resultSaveStage.hide();
+                primaryStage.show();
+            }catch (Exception e){
+                throw new RuntimeException(e);
+            }
+        });
 
     }
 
@@ -394,4 +419,57 @@ public class SpecialMethodsClass {
         }
     }
 
+    public static void checkTasks(Button button){
+        button.setOnAction(event -> {
+            saveFailStage();
+            saveWinStage();
+            WorkerCheckTask.checkTaskDocument(winSaveStage, failSaveStage);
+        });
+    }
+
+    private static void saveWinStage(){
+        try {
+            FXMLLoader loader = new FXMLLoader(SpecialMethodsClass.class.getResource(DictionaryPath.WINDOW_IS_CORRECT_WIN));
+            Parent newRoot = loader.load();
+            Stage winStage = new Stage();
+            winStage.setAlwaysOnTop(true);
+            winStage.initOwner(primaryStage);
+            winStage.initStyle(StageStyle.UNDECORATED);
+            winStage.initModality(Modality.APPLICATION_MODAL);
+            Scene scene = new Scene(newRoot);
+            scene.setFill(Color.TRANSPARENT);
+            winStage.setScene(scene);
+            winStage.initStyle(StageStyle.TRANSPARENT);
+
+            winSaveStage = winStage;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void saveFailStage(){
+        try {
+            FXMLLoader loader = new FXMLLoader(SpecialMethodsClass.class.getResource(DictionaryPath.WINDOW_IS_CORRECT_DRAW));
+            Parent newRoot = loader.load();
+            Stage failStage = new Stage();
+            failStage.setAlwaysOnTop(true);
+            failStage.initOwner(primaryStage);
+            failStage.initStyle(StageStyle.UNDECORATED);
+            failStage.initModality(Modality.APPLICATION_MODAL);
+            Scene scene = new Scene(newRoot);
+            scene.setFill(Color.TRANSPARENT);
+            failStage.setScene(scene);
+            failStage.initStyle(StageStyle.TRANSPARENT);
+
+            failSaveStage = failStage;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void closeFailWindow(Button button){
+        button.setOnAction(event -> {
+            failSaveStage.hide();
+        });
+    }
 }

@@ -8,6 +8,7 @@ module org.example.projectinform {
     requires ormlite.jdbc;
     requires org.apache.poi.ooxml;
     requires java.desktop;
+    requires spire.doc.free;
 
 
     exports org.example.projectinform;

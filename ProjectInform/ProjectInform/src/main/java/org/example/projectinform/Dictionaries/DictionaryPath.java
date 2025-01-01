@@ -24,9 +24,9 @@ public class DictionaryPath {
 
     public static final String WINDOW_TASK_IS_CORRECT = "/Fxml/WindowIsCorrect/WindowTaskIsCorrect.fxml";
 
-    public static final String WINDOW_IS_CORRECT_DRAW = "/Fxml/WindowIsCorrect/WindowTaskIsCorrectDraw.fxml";
+    public static final String WINDOW_IS_CORRECT_DRAW = "/Fxml/WindowIsCorrect/WindowTasksIsCorrectDraw.fxml";
 
-    public static final String WINDOW_IS_CORRECT_WIN = "/Fxml/WindowIsCorrect/WindowTaskIsCorrectWin.fxml";
+    public static final String WINDOW_IS_CORRECT_WIN = "/Fxml/WindowIsCorrect/WindowTasksIsCorrectWin.fxml";
 
     public static final String SETTINGS_WINDOW_WORD = "/Fxml/WindowWord/SettingsWindowWord.fxml";
 

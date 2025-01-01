@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="fon_container" stylesheets="@../../Styles/stylesWindowTaskIsCorrectAll.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.projectinform.Controllers.WindowIsCorrect.WindowTaskIsCorrect">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="fon_container" stylesheets="@../../Styles/stylesWindowTaskIsCorrectAll.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.projectinform.Controllers.WindowIsCorrect.WindowTasksIsCorrectWin">
    <children>
       <VBox alignment="CENTER" layoutX="38.0" layoutY="36.0" prefHeight="328.0" prefWidth="524.0">
          <children>
@@ -21,15 +21,15 @@
                   <Insets bottom="30.0" top="30.0" />
                </VBox.margin>
             </Label>
-            <Label styleClass="text_fon_task" text="Ты получил 20 инфокойнов" textFill="#0d0d0d" />
+            <Label fx:id="countInfocoin" styleClass="text_fon_task" text="Ты получил 20 инфокойнов" textFill="#0d0d0d" />
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button maxHeight="39.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="170.0" styleClass="hbox_button" text="Выход" textFill="WHITE">
+                  <Button fx:id="logOutToWordMenu" maxHeight="39.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="170.0" styleClass="hbox_button" text="Выход" textFill="WHITE">
                      <HBox.margin>
                         <Insets left="40.0" right="40.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="170.0" styleClass="hbox_button" text="Продолжить" textFill="WHITE">
+                  <Button fx:id="nextTask" mnemonicParsing="false" prefHeight="40.0" prefWidth="170.0" styleClass="hbox_button" text="Продолжить" textFill="WHITE">
                      <HBox.margin>
                         <Insets left="40.0" right="40.0" />
                      </HBox.margin>

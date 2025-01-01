@@ -3,7 +3,7 @@ package org.example.projectinform.Controllers.WindowIsCorrect;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.text.TextFlow;
-import org.example.projectinform.WorkerasksResult.WorkerTasksResult;
+import org.example.projectinform.WorkerTasksResult.WorkerTasksResult;
 
 import java.net.URL;
 import java.util.ResourceBundle;
