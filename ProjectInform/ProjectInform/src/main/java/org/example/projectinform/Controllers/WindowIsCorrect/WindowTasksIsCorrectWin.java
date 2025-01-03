@@ -27,5 +27,7 @@ public class WindowTasksIsCorrectWin implements Initializable {
 
         SpecialMethodsClass.setCountInfoCoinsToWin(countInfocoin);
 
+        SpecialMethodsClass.nextTask(nextTask);
+
     }
 }

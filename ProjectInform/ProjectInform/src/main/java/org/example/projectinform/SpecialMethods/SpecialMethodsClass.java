@@ -472,4 +472,17 @@ public class SpecialMethodsClass {
             failSaveStage.hide();
         });
     }
+
+    public static void nextTask(Button button){
+        button.setOnAction(event -> {
+            String nextTaskUrl = "Word_" + GlobalTasks.globalTasks.idForNumberString();
+            try {
+                getTasksInfo(nextTaskUrl);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+            winSaveStage.hide();
+
+        });
+    }
 }
