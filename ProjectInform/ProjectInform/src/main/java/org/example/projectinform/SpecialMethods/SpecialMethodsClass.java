@@ -2,6 +2,7 @@ package org.example.projectinform.SpecialMethods;
 
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -9,12 +10,12 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Modality;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import lombok.Setter;
-import org.example.projectinform.DBRepository.Entity.Tasks;
 import org.example.projectinform.DBRepository.StudentDBRepositoryController;
 import org.example.projectinform.DBRepository.Entity.Student;
 import org.example.projectinform.DBRepository.TasksDBRepositoryController;
@@ -23,10 +24,10 @@ import org.example.projectinform.FileWorker.CreateAndOpenFileWord;
 import org.example.projectinform.GlobalEntity.GlobalStudentUser;
 import org.example.projectinform.GlobalEntity.GlobalTasks;
 import org.example.projectinform.WorkerCheckTask.WorkerCheckTask;
+import org.example.projectinform.WorkerTasksResult.WorkerTasksResult;
 
 import java.io.File;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.text.MessageFormat;
 
 public class SpecialMethodsClass {
@@ -257,7 +258,7 @@ public class SpecialMethodsClass {
     public static void switchInfoWord(Button button, String path, String id) {
         button.setOnAction(event -> {
             try {
-                getTasksInfo(id);
+                getTasksInfoForDB(id);
                 FXMLLoader loader = new FXMLLoader(SpecialMethodsClass.class.getResource(path));
                 Parent newRoot = loader.load();
                 Stage infoTaskStage = new Stage();
@@ -281,7 +282,7 @@ public class SpecialMethodsClass {
         });
     }
 
-    private static void getTasksInfo(String id) throws Exception {
+    private static void getTasksInfoForDB(String id) throws Exception {
 
         TasksDBRepositoryController dbRepositoryController = new TasksDBRepositoryController();
         dbRepositoryController.connect();
@@ -475,14 +476,38 @@ public class SpecialMethodsClass {
 
     public static void nextTask(Button button){
         button.setOnAction(event -> {
-            String nextTaskUrl = "Word_" + GlobalTasks.globalTasks.idForNumberString();
+            String nextTaskUrl = "Word_" + (Integer.parseInt(GlobalTasks.globalTasks.idForNumberString()) + 1);
             try {
-                getTasksInfo(nextTaskUrl);
+                getTasksInfoForDB(nextTaskUrl);
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
             winSaveStage.hide();
-
+            updateTaskInfo();
         });
+    }
+
+    private static void updateTaskInfo() {
+        TextFlow textFlow = findTextFlow(resultSaveStage.getScene().getRoot());
+        if (textFlow != null) {
+            textFlow.getChildren().clear();
+            WorkerTasksResult.viewTasksResult(textFlow);
+        } else {
+            System.out.println("TextFlow not found in scene graph");
+        }
+    }
+
+    private static TextFlow findTextFlow(Parent parent) {
+        for (Node node : parent.getChildrenUnmodifiable()) {
+            if (node instanceof TextFlow) {
+                return (TextFlow) node;
+            } else if (node instanceof Parent) {
+                TextFlow textFlow = findTextFlow((Parent) node);
+                if (textFlow != null) {
+                    return textFlow;
+                }
+            }
+        }
+        return null;
     }
 }

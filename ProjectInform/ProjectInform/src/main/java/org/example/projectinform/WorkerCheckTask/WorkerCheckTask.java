@@ -13,6 +13,7 @@ import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
 import org.example.projectinform.GlobalEntity.GlobalStudentUser;
 import org.example.projectinform.GlobalEntity.GlobalTasks;
+import org.example.projectinform.TasksChecking.GetUrlCorrectFile;
 
 import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
@@ -29,7 +30,6 @@ public class WorkerCheckTask {
 
     static String nameUser = GlobalStudentUser.globalStudent.getFirstName();
     static String lastNameUser = GlobalStudentUser.globalStudent.getLastName();
-    static String nameTasks = GlobalTasks.globalTasks.getResult();
 
     public static void checkTaskDocument(Stage stageWin, Stage stageFail){
         boolean result;
@@ -41,6 +41,7 @@ public class WorkerCheckTask {
 
         if(result){
             stageWin.show();
+            GlobalStudentUser.globalStudent.setCountCoins(GlobalStudentUser.globalStudent.getCountCoins() + GlobalTasks.globalTasks.getCountCoins());
         } else {
             stageFail.show();
         }
@@ -54,8 +55,8 @@ public class WorkerCheckTask {
         return "src/main/resources/File/File_" + nameUser + "_" + lastNameUser + ".docx";
     }
 
-    private static String getUrlCorrectFile(){
-        return "src/main/resources/FileCor/" + nameTasks + ".docx";
+    public static String getUrlCorrectFile(){
+        return GetUrlCorrectFile.getUrlCorrectFile();
     }
 
 }

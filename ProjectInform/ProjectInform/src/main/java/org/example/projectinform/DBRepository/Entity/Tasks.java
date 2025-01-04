@@ -41,4 +41,8 @@ public class Tasks {
         return this.id.substring(5);
     }
 
+    public String toString(){
+        return result;
+    }
+
 }

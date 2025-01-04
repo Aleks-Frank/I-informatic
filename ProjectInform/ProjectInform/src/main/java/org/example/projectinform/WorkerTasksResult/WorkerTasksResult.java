@@ -1,51 +1,53 @@
 package org.example.projectinform.WorkerTasksResult;
 
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
+import javafx.scene.text.*;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
+import org.example.projectinform.TasksChecking.GetUrlCorrectFile;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
+
+import static org.example.projectinform.TasksChecking.AllTasksChecking.*;
 
 public class WorkerTasksResult {
 
     public static void viewTasksResult(TextFlow textFlow) {
-        XWPFDocument document = null;
         try {
-            InputStream inputStream = WorkerTasksResult.class.getResourceAsStream("/FileCor/TaskOne.docx");
-            document = new XWPFDocument(inputStream);
+            List<String> fontParagraphs = checkFontParagraphsInDocx(GetUrlCorrectFile.getUrlCorrectFile());
+            System.out.println(fontParagraphs);
+            List<Double> sizeFontParagraphs = checkSizeFontParagraphsInDocx(GetUrlCorrectFile.getUrlCorrectFile());
+            System.out.println(sizeFontParagraphs);
+            List<Boolean> boldParagraphs = checkBoldParagraphsInDocx(GetUrlCorrectFile.getUrlCorrectFile());
+            System.out.println(boldParagraphs);
 
-            for (XWPFParagraph paragraph : document.getParagraphs()) {
-                StringBuilder sb = new StringBuilder();
-                for (XWPFRun run : paragraph.getRuns()) {
-                    String text = run.text();
-                    sb.append(text);
+            try (FileInputStream fis = new FileInputStream(GetUrlCorrectFile.getUrlCorrectFile());
+                 XWPFDocument doc = new XWPFDocument(fis)) {
+
+                List<XWPFParagraph> paragraphs = doc.getParagraphs();
+
+                for (int i = 0; i < paragraphs.size(); i++) {
+                    String fontFamily = fontParagraphs.get(i);
+                    int fontSize = sizeFontParagraphs.get(i).intValue();
+                    boolean isBold = boldParagraphs.get(i);
+                    String paragraphText = paragraphs.get(i).getText();
+
+                    setTextFlow(textFlow, paragraphText, fontFamily, fontSize, isBold);
                 }
-                String fullText = sb.toString();
-
-                String fontFamily = paragraph.getRuns().get(0).getFontFamily();
-                int fontSize = paragraph.getRuns().get(0).getFontSize();
-
-                setTextFlow(textFlow, fullText, fontFamily, fontSize);
             }
-
-            document.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private static void setTextFlow(TextFlow textFlow, String text, String fontFamily, int fontSize) {
-        String[] lines = text.split("\\r?\\n");
-        for (String line : lines) {
-            Text textNode = new Text(line);
-            textNode.setFont(Font.font(fontFamily, fontSize));
-            textFlow.getChildren().add(textNode);
-            textFlow.getChildren().add(new Text("\n"));
-        }
+    private static void setTextFlow(TextFlow textFlow, String text, String fontFamily, int fontSize, boolean isBold) {
+        Text textNode = new Text(text);
+        textNode.setFont(Font.font(fontFamily, isBold ? FontWeight.BOLD : FontWeight.NORMAL, FontPosture.REGULAR, fontSize));
+        textFlow.getChildren().add(textNode);
+        textFlow.getChildren().add(new Text("\n"));
     }
 
 }
