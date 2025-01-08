@@ -16,11 +16,13 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import lombok.Setter;
+import org.example.projectinform.DBRepository.GameDBRepositoryController;
 import org.example.projectinform.DBRepository.StudentDBRepositoryController;
 import org.example.projectinform.DBRepository.Entity.Student;
 import org.example.projectinform.DBRepository.TasksDBRepositoryController;
 import org.example.projectinform.Dictionaries.DictionaryPath;
 import org.example.projectinform.FileWorker.CreateAndOpenFileWord;
+import org.example.projectinform.GlobalEntity.GlobalGame;
 import org.example.projectinform.GlobalEntity.GlobalStudentUser;
 import org.example.projectinform.GlobalEntity.GlobalTasks;
 import org.example.projectinform.WorkerCheckTask.WorkerCheckTask;
@@ -28,6 +30,7 @@ import org.example.projectinform.WorkerTasksResult.WorkerTasksResult;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.text.MessageFormat;
 
 public class SpecialMethodsClass {
@@ -52,6 +55,12 @@ public class SpecialMethodsClass {
 
     @Setter
     private static Stage failSaveStage;
+
+    @Setter
+    private static Stage settingStageGame;
+
+    @Setter
+    private static Stage failGameEnterSaveStage;
 
     public static void switchWindow(Button button, String path){
         button.setOnAction(event -> {
@@ -107,6 +116,21 @@ public class SpecialMethodsClass {
     public static void switchFromSettingsToTheWindow(Button button, String nextWindowPath) {
         button.setOnAction(event -> {
             settingStage.close();
+
+            try {
+                FXMLLoader loader = new FXMLLoader(SpecialMethodsClass.class.getResource(nextWindowPath));
+                Parent newRoot = loader.load();
+                Scene scene = new Scene(newRoot);
+                primaryStage.setScene(scene);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    public static void switchFromSettingsGameToTheWindow(Button button, String nextWindowPath) {
+        button.setOnAction(event -> {
+            failGameEnterSaveStage.close();
 
             try {
                 FXMLLoader loader = new FXMLLoader(SpecialMethodsClass.class.getResource(nextWindowPath));
@@ -185,6 +209,8 @@ public class SpecialMethodsClass {
 
             try{
                 loginUser(button, roleStudentBox, classStudentText, loginStudentText, passwordStudentText, path, message);
+                //Заменить на 1//
+                getGameInfoForDB(2);
             } catch (Exception e) {
                 System.out.print("Пользователя нет в базе данных");
             }
@@ -217,9 +243,9 @@ public class SpecialMethodsClass {
         dbRepositoryController.close();
     }
 
-    public static void startGameDragonPicker(Button button){
+    public static void startGame(Button button){
         button.setOnAction(event -> {
-            String relativePath = "games/DragonPicker/BuildTwo/DragonPicker.exe";
+            String relativePath = GlobalGame.globalGame.getUrlGame();
             File gameFile = new File(relativePath);
             if (gameFile.exists()) {
                 try {
@@ -232,6 +258,21 @@ public class SpecialMethodsClass {
                 System.out.println("Не удается найти указанный файл: " + relativePath);
             }
         });
+    }
+
+    public static void startGame(){
+        String relativePath = GlobalGame.globalGame.getUrlGame();
+        File gameFile = new File(relativePath);
+        if (gameFile.exists()) {
+            try {
+                ProcessBuilder processBuilder = new ProcessBuilder(relativePath);
+                processBuilder.start();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("Не удается найти указанный файл: " + relativePath);
+        }
     }
 
     public static void openWordFileOnButton(Button button){
@@ -448,6 +489,26 @@ public class SpecialMethodsClass {
         }
     }
 
+    private static void saveFailGameStage(){
+        try {
+            FXMLLoader loader = new FXMLLoader(SpecialMethodsClass.class.getResource(DictionaryPath.WINDOW_GAME_NOT_ENOUGH_COINS));
+            Parent newRoot = loader.load();
+            Stage failGameStage = new Stage();
+            failGameStage.setAlwaysOnTop(true);
+            failGameStage.initOwner(primaryStage);
+            failGameStage.initStyle(StageStyle.UNDECORATED);
+            failGameStage.initModality(Modality.APPLICATION_MODAL);
+            Scene scene = new Scene(newRoot);
+            scene.setFill(Color.TRANSPARENT);
+            failGameStage.setScene(scene);
+            failGameStage.initStyle(StageStyle.TRANSPARENT);
+
+            failGameEnterSaveStage = failGameStage;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     private static void saveFailStage(){
         try {
             FXMLLoader loader = new FXMLLoader(SpecialMethodsClass.class.getResource(DictionaryPath.WINDOW_IS_CORRECT_DRAW));
@@ -509,5 +570,70 @@ public class SpecialMethodsClass {
             }
         }
         return null;
+    }
+
+    public static void updateStudentCoins() throws SQLException {
+        StudentDBRepositoryController dbRepositoryController = new StudentDBRepositoryController();
+
+        dbRepositoryController.connect();
+        dbRepositoryController.updateStudentCountCoins(GlobalStudentUser.globalStudent.getId(), GlobalStudentUser.globalStudent.getCountCoins());
+        try {
+            dbRepositoryController.close();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void switchSettingsGame(Button button, String path, int idGame) {
+        button.setOnAction(event -> {
+            try {
+                getGameInfoForDB(idGame);
+                FXMLLoader loader = new FXMLLoader(SpecialMethodsClass.class.getResource(path));
+                Parent newRoot = loader.load();
+                Stage settingsGame = new Stage();
+                settingsGame.initOwner(primaryStage);
+                settingsGame.initStyle(StageStyle.UNDECORATED);
+                settingsGame.initModality(Modality.WINDOW_MODAL);
+                Scene scene = new Scene(newRoot);
+                scene.setFill(Color.TRANSPARENT);
+                settingsGame.setScene(scene);
+                settingsGame.initStyle(StageStyle.TRANSPARENT);
+
+                settingStageGame = settingsGame;
+                settingsGame.show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    private static void getGameInfoForDB(int id) throws Exception {
+
+        GameDBRepositoryController dbRepositoryController = new GameDBRepositoryController();
+        dbRepositoryController.connect();
+        GlobalGame.globalGame = dbRepositoryController.getGameById(id);
+        dbRepositoryController.close();
+
+    }
+
+    public static void enterInGame(Button button){
+        button.setOnAction(event -> {
+            if (GlobalGame.globalGame.getCountCoins() < GlobalStudentUser.globalStudent.getCountCoins() && !GlobalGame.globalGame.getUrlGame().isEmpty()){
+                GlobalStudentUser.globalStudent.setCountCoins(GlobalStudentUser.globalStudent.getCountCoins() - GlobalGame.globalGame.getCountCoins());
+                try {
+                    updateStudentCoins();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+                startGame();
+                settingStageGame.hide();
+            } else {
+                settingStageGame.hide();
+                if (failGameEnterSaveStage == null){
+                    saveFailGameStage();
+                }
+                failGameEnterSaveStage.show();
+            }
+        });
     }
 }

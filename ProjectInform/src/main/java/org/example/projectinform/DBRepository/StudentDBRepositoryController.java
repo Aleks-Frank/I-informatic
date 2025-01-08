@@ -7,6 +7,7 @@ import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 import lombok.Data;
 import org.example.projectinform.DBRepository.Entity.Student;
+import org.example.projectinform.DBRepository.Entity.Tasks;
 
 import java.sql.SQLException;
 
@@ -52,6 +53,24 @@ public class StudentDBRepositoryController {
                 .and()
                 .eq("password", password)
                 .queryForFirst();
+    }
+
+    public Student getStudentById(int id) throws SQLException {
+        return studentFromDB.queryBuilder()
+                .where()
+                .eq("id", id)
+                .queryForFirst();
+    }
+
+    public void updateStudentCountCoins(int id, int newCountCoins) throws SQLException{
+        Student student = getStudentById(id);
+        if(student != null){
+            student.setCountCoins(newCountCoins);
+            studentFromDB.update(student);
+            System.out.println("Значение countCoins успешно обновлено для студента с id " + id);
+        } else {
+            System.out.println("Студент с id " + id + " не найден");
+        }
     }
 
 }

@@ -16,6 +16,6 @@ public class WindowGameNotEnoughCoins implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        SpecialMethodsClass.switchFromSettingsToTheWindow(exitStudentMenu, DictionaryPath.STUDENT_MENU);
+        SpecialMethodsClass.switchFromSettingsGameToTheWindow(exitStudentMenu, DictionaryPath.STUDENT_MENU);
     }
 }

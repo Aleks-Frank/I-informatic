@@ -13,12 +13,14 @@ import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
 import org.example.projectinform.GlobalEntity.GlobalStudentUser;
 import org.example.projectinform.GlobalEntity.GlobalTasks;
+import org.example.projectinform.SpecialMethods.SpecialMethodsClass;
 import org.example.projectinform.TasksChecking.GetUrlCorrectFile;
 
 import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -42,6 +44,11 @@ public class WorkerCheckTask {
         if(result){
             stageWin.show();
             GlobalStudentUser.globalStudent.setCountCoins(GlobalStudentUser.globalStudent.getCountCoins() + GlobalTasks.globalTasks.getCountCoins());
+            try {
+                SpecialMethodsClass.updateStudentCoins();
+            } catch (SQLException e) {
+                System.out.println("Инфокойны не сохранились");
+            }
         } else {
             stageFail.show();
         }

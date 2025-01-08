@@ -29,7 +29,7 @@ public class WindowGameModePlayTwoController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        SpecialMethodsClass.switchSettings(playInGameOne, DictionaryPath.WINDOW_GAME_ENTER_IN_GAME);
+        SpecialMethodsClass.switchSettingsGame(playInGameOne, DictionaryPath.WINDOW_GAME_ENTER_IN_GAME, 2);
 
         SpecialMethodsClass.switchWindow(backMenuStudent, DictionaryPath.STUDENT_MENU);
 

@@ -69,9 +69,25 @@ public class WindowWordOneController implements Initializable {
 
         SpecialMethodsClass.closeWindow(closeButton);
 
+        SpecialMethodsClass.switchInfoWord(taskOneWord, DictionaryPath.WINDOW_WORD_INFO_TASK, "Word_1");
+
         SpecialMethodsClass.switchInfoWord(taskTwoWord, DictionaryPath.WINDOW_WORD_INFO_TASK, "Word_2");
 
-        SpecialMethodsClass.switchInfoWord(taskOneWord, DictionaryPath.WINDOW_WORD_INFO_TASK, "Word_1");
+        SpecialMethodsClass.switchInfoWord(taskThreeWord, DictionaryPath.WINDOW_WORD_INFO_TASK, "Word_3");
+
+        SpecialMethodsClass.switchInfoWord(taskFourWord, DictionaryPath.WINDOW_WORD_INFO_TASK, "Word_4");
+
+        SpecialMethodsClass.switchInfoWord(taskFiveWord, DictionaryPath.WINDOW_WORD_INFO_TASK, "Word_5");
+
+        SpecialMethodsClass.switchInfoWord(taskSixWord, DictionaryPath.WINDOW_WORD_INFO_TASK, "Word_6");
+
+        SpecialMethodsClass.switchInfoWord(taskSevenWord, DictionaryPath.WINDOW_WORD_INFO_TASK, "Word_7");
+
+        SpecialMethodsClass.switchInfoWord(taskEightWord, DictionaryPath.WINDOW_WORD_INFO_TASK, "Word_8");
+
+        SpecialMethodsClass.switchInfoWord(taskNineWord, DictionaryPath.WINDOW_WORD_INFO_TASK, "Word_9");
+
+        SpecialMethodsClass.switchInfoWord(taskTenWord, DictionaryPath.WINDOW_WORD_INFO_TASK, "Word_10");
 
         SpecialMethodsClass.viewCountCoins(countCoins);
     }

@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.example.projectinform.Dictionaries.DictionaryPath;
+import org.example.projectinform.GlobalEntity.GlobalGame;
 import org.example.projectinform.SpecialMethods.SpecialMethodsClass;
 
 import java.io.IOException;
@@ -37,7 +38,7 @@ public class WindowGameModePlayOneController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        SpecialMethodsClass.switchSettings(playInGameOne, DictionaryPath.WINDOW_GAME_ENTER_IN_GAME);
+        SpecialMethodsClass.switchSettingsGame(playInGameOne, DictionaryPath.WINDOW_GAME_ENTER_IN_GAME, 1);
 
         SpecialMethodsClass.switchWindow(backMenuStudent, DictionaryPath.STUDENT_MENU);
 
