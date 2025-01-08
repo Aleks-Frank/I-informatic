@@ -20,13 +20,17 @@ public class Games {
     @DatabaseField()
     private String urlGame;
 
+    @DatabaseField()
+    private String urlResult;
+
     public Games(){};
 
-    public Games(int id, String nameGame, int countCoins, String urlGame){
+    public Games(int id, String nameGame, int countCoins, String urlGame, String urlResult){
         this.id = id;
         this.nameGame = nameGame;
         this.countCoins = countCoins;
         this.urlGame = urlGame;
+        this.urlResult = urlResult;
     }
 
 }

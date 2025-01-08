@@ -32,6 +32,9 @@ public class Student {
     @DatabaseField()
     private int countCoins = 0;
 
+    @DatabaseField()
+    private int resultDragonPicker = 0;
+
     public Student(){}
 
     public Student(String firstName, String lastName, String role, int classStudent, String login, String password){

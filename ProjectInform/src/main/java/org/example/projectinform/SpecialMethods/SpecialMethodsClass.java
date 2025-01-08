@@ -28,7 +28,9 @@ import org.example.projectinform.GlobalEntity.GlobalTasks;
 import org.example.projectinform.WorkerCheckTask.WorkerCheckTask;
 import org.example.projectinform.WorkerTasksResult.WorkerTasksResult;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.text.MessageFormat;
@@ -267,6 +269,7 @@ public class SpecialMethodsClass {
             try {
                 ProcessBuilder processBuilder = new ProcessBuilder(relativePath);
                 processBuilder.start();
+                updateResultGame();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -618,7 +621,7 @@ public class SpecialMethodsClass {
 
     public static void enterInGame(Button button){
         button.setOnAction(event -> {
-            if (GlobalGame.globalGame.getCountCoins() < GlobalStudentUser.globalStudent.getCountCoins() && !GlobalGame.globalGame.getUrlGame().isEmpty()){
+            if (GlobalGame.globalGame.getCountCoins() <= GlobalStudentUser.globalStudent.getCountCoins() && !GlobalGame.globalGame.getUrlGame().isEmpty()){
                 GlobalStudentUser.globalStudent.setCountCoins(GlobalStudentUser.globalStudent.getCountCoins() - GlobalGame.globalGame.getCountCoins());
                 try {
                     updateStudentCoins();
@@ -636,4 +639,39 @@ public class SpecialMethodsClass {
             }
         });
     }
+
+    private static int getResultFromFile(){
+        String filePath = GlobalGame.globalGame.getUrlResult();
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line = reader.readLine();
+            if (line != null) {
+                try {
+                    int number = Integer.parseInt(line);
+                    System.out.println("Number read from file: " + number);
+                    return number;
+                } catch (NumberFormatException e) {
+                    System.err.println("Error: Unable to parse number from file");
+                }
+            } else {
+                System.err.println("Error: File is empty");
+            }
+        } catch (IOException e) {
+            System.err.println("Error reading file: " + e.getMessage());
+        }
+        return 0;
+    }
+
+    private static void updateResultGame(){
+        StudentDBRepositoryController dbRepositoryController = new StudentDBRepositoryController();
+
+        try {
+            dbRepositoryController.connect();
+            System.out.println("connect");
+            dbRepositoryController.updateStudentResultDragonPicker(GlobalStudentUser.globalStudent.getId(), getResultFromFile());
+            dbRepositoryController.close();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
+

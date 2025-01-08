@@ -73,4 +73,15 @@ public class StudentDBRepositoryController {
         }
     }
 
+    public void updateStudentResultDragonPicker(int id, int resultDP) throws SQLException{
+        Student student = getStudentById(id);
+        if(student != null){
+            student.setResultDragonPicker(resultDP);
+            studentFromDB.update(student);
+            System.out.println("Значение resultDP успешно обновлено для студента с id " + id);
+        } else {
+            System.out.println("Студент с id " + id + " не найден");
+        }
+    }
+
 }
