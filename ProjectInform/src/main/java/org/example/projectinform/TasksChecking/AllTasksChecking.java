@@ -46,6 +46,7 @@ public class AllTasksChecking {
 
                 for (XWPFRun run : paragraph.getRuns()) {
                     fontName = run.getFontName();
+                    System.out.println(run);
                 }
                 fontParagraphs.add(fontName);
             }
