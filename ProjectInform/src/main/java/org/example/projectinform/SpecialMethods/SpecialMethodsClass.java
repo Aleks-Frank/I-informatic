@@ -20,7 +20,7 @@ import org.example.projectinform.DBRepository.GameDBRepositoryController;
 import org.example.projectinform.DBRepository.StudentDBRepositoryController;
 import org.example.projectinform.DBRepository.Entity.Student;
 import org.example.projectinform.DBRepository.TasksDBRepositoryController;
-import org.example.projectinform.Dictionaries.DictionaryPath;
+import org.example.projectinform.Dictionaries.FXMLPath;
 import org.example.projectinform.FileWorker.CreateAndOpenFileWord;
 import org.example.projectinform.GlobalEntity.GlobalGame;
 import org.example.projectinform.GlobalEntity.GlobalStudentUser;
@@ -347,7 +347,7 @@ public class SpecialMethodsClass {
 
     private static void openWindowCorrect(){
         try {
-            FXMLLoader loader = new FXMLLoader(SpecialMethodsClass.class.getResource(DictionaryPath.WINDOW_IS_CORRECT));
+            FXMLLoader loader = new FXMLLoader(SpecialMethodsClass.class.getResource(FXMLPath.WINDOW_IS_CORRECT));
             Parent newRoot = loader.load();
             Stage currectStage = new Stage();
             currectStage.setAlwaysOnTop(true);
@@ -435,7 +435,7 @@ public class SpecialMethodsClass {
 
     private static void openWindowResultTask(){
         try {
-            FXMLLoader loader = new FXMLLoader(SpecialMethodsClass.class.getResource(DictionaryPath.WINDOW_TASKS_RESULT));
+            FXMLLoader loader = new FXMLLoader(SpecialMethodsClass.class.getResource(FXMLPath.WINDOW_TASKS_RESULT));
             Parent newRoot = loader.load();
             Stage resultStage = new Stage();
             resultStage.setAlwaysOnTop(true);
@@ -474,7 +474,7 @@ public class SpecialMethodsClass {
 
     private static void saveWinStage(){
         try {
-            FXMLLoader loader = new FXMLLoader(SpecialMethodsClass.class.getResource(DictionaryPath.WINDOW_IS_CORRECT_WIN));
+            FXMLLoader loader = new FXMLLoader(SpecialMethodsClass.class.getResource(FXMLPath.WINDOW_IS_CORRECT_WIN));
             Parent newRoot = loader.load();
             Stage winStage = new Stage();
             winStage.setAlwaysOnTop(true);
@@ -494,7 +494,7 @@ public class SpecialMethodsClass {
 
     private static void saveFailGameStage(){
         try {
-            FXMLLoader loader = new FXMLLoader(SpecialMethodsClass.class.getResource(DictionaryPath.WINDOW_GAME_NOT_ENOUGH_COINS));
+            FXMLLoader loader = new FXMLLoader(SpecialMethodsClass.class.getResource(FXMLPath.WINDOW_GAME_NOT_ENOUGH_COINS));
             Parent newRoot = loader.load();
             Stage failGameStage = new Stage();
             failGameStage.setAlwaysOnTop(true);
@@ -514,7 +514,7 @@ public class SpecialMethodsClass {
 
     private static void saveFailStage(){
         try {
-            FXMLLoader loader = new FXMLLoader(SpecialMethodsClass.class.getResource(DictionaryPath.WINDOW_IS_CORRECT_DRAW));
+            FXMLLoader loader = new FXMLLoader(SpecialMethodsClass.class.getResource(FXMLPath.WINDOW_IS_CORRECT_DRAW));
             Parent newRoot = loader.load();
             Stage failStage = new Stage();
             failStage.setAlwaysOnTop(true);
@@ -541,6 +541,7 @@ public class SpecialMethodsClass {
     public static void nextTask(Button button){
         button.setOnAction(event -> {
             String nextTaskUrl = "Word_" + (Integer.parseInt(GlobalTasks.globalTasks.idForNumberString()) + 1);
+            System.out.println(nextTaskUrl);
             try {
                 getTasksInfoForDB(nextTaskUrl);
             } catch (Exception e) {
@@ -621,7 +622,7 @@ public class SpecialMethodsClass {
 
     public static void enterInGame(Button button){
         button.setOnAction(event -> {
-            if (GlobalGame.globalGame.getCountCoins() <= GlobalStudentUser.globalStudent.getCountCoins() && !GlobalGame.globalGame.getUrlGame().isEmpty()){
+            if (GlobalGame.globalGame.getCountCoins() < GlobalStudentUser.globalStudent.getCountCoins() && !GlobalGame.globalGame.getUrlGame().isEmpty()){
                 GlobalStudentUser.globalStudent.setCountCoins(GlobalStudentUser.globalStudent.getCountCoins() - GlobalGame.globalGame.getCountCoins());
                 try {
                     updateStudentCoins();
@@ -673,5 +674,5 @@ public class SpecialMethodsClass {
             throw new RuntimeException(e);
         }
     }
-}
 
+}

@@ -6,9 +6,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import org.example.projectinform.Controllers.Entity.ChoiceBoxController;
-import org.example.projectinform.Dictionaries.DictionaryPath;
+import org.example.projectinform.Dictionaries.FXMLPath;
 import org.example.projectinform.SpecialMethods.SpecialMethodsClass;
 
 import java.net.URL;
@@ -27,9 +26,6 @@ public class LoginController implements Initializable {
 
     @FXML
     private Label errorMessage;
-
-    @FXML
-    private AnchorPane inputPane;
 
     @FXML
     private TextField loginStud;
@@ -53,13 +49,13 @@ public class LoginController implements Initializable {
 
         errorMessage.setVisible(false);
 
-        SpecialMethodsClass.loginStudent(enter, DictionaryPath.STUDENT_MENU, roleStud, classStud, loginStud, passwordStud, errorMessage);
+        SpecialMethodsClass.loginStudent(enter, FXMLPath.STUDENT_MENU, roleStud, classStud, loginStud, passwordStud, errorMessage);
 
 //        SpecialMethodsClass.switchWindow(enter, DictionaryPath.STUDENT_MENU);
 
-        SpecialMethodsClass.switchWindow(registrationInput, DictionaryPath.REGISTRATION);
+        SpecialMethodsClass.switchWindow(registrationInput, FXMLPath.REGISTRATION);
 
-        SpecialMethodsClass.switchSettings(settingsButton, DictionaryPath.LOGIN_SETTINGS);
+        SpecialMethodsClass.switchSettings(settingsButton, FXMLPath.LOGIN_SETTINGS);
 
         SpecialMethodsClass.closeWindow(closeButton);
 

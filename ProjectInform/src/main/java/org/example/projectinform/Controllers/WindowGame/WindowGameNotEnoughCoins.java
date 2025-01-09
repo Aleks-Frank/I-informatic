@@ -3,7 +3,7 @@ package org.example.projectinform.Controllers.WindowGame;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import org.example.projectinform.Dictionaries.DictionaryPath;
+import org.example.projectinform.Dictionaries.FXMLPath;
 import org.example.projectinform.SpecialMethods.SpecialMethodsClass;
 
 import java.net.URL;
@@ -16,6 +16,7 @@ public class WindowGameNotEnoughCoins implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        SpecialMethodsClass.switchFromSettingsGameToTheWindow(exitStudentMenu, DictionaryPath.STUDENT_MENU);
+
+        SpecialMethodsClass.switchFromSettingsGameToTheWindow(exitStudentMenu, FXMLPath.STUDENT_MENU);
     }
 }

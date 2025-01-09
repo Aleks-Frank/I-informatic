@@ -4,7 +4,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import org.example.projectinform.Dictionaries.DictionaryPath;
+import org.example.projectinform.Dictionaries.FXMLPath;
+import org.example.projectinform.Dictionaries.WordTaskPaths;
 import org.example.projectinform.SpecialMethods.SpecialMethodsClass;
 
 import java.net.URL;
@@ -13,16 +14,7 @@ import java.util.ResourceBundle;
 public class WindowWordControlWorkTwoController implements Initializable {
 
     @FXML
-    private Button backMenuStudent;
-
-    @FXML
-    private Button closeButton;
-
-    @FXML
-    private Label count;
-
-    @FXML
-    private Button enterWorkControl;
+    private Button settingsButton;
 
     @FXML
     private Button lastWindow;
@@ -31,18 +23,31 @@ public class WindowWordControlWorkTwoController implements Initializable {
     private Button nextWindow;
 
     @FXML
-    private Button settingsButton;
+    private Button enterWorkControl;
+
+    @FXML
+    private Button backMenuStudent;
+
+    @FXML
+    private Button closeButton;
+
+    @FXML
+    private Label countCoins;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        SpecialMethodsClass.switchSettings(settingsButton, FXMLPath.SETTINGS_WINDOW_WORD);
+
+        SpecialMethodsClass.switchWindow(lastWindow, FXMLPath.WINDOW_WORD_TWO);
+        SpecialMethodsClass.switchWindow(nextWindow, FXMLPath.WINDOW_WORD_THREE);
+
+        SpecialMethodsClass.switchInfoWord(enterWorkControl, FXMLPath.WINDOW_WORD_INFO_TASK, WordTaskPaths.CW2);
+
         SpecialMethodsClass.returnMenuWindow(backMenuStudent);
 
-        SpecialMethodsClass.switchWindow(nextWindow, DictionaryPath.WINDOW_WORD_THREE);
-
-        SpecialMethodsClass.switchSettings(settingsButton, DictionaryPath.SETTINGS_WINDOW_WORD);
-
-        SpecialMethodsClass.switchWindow(lastWindow, DictionaryPath.WINDOW_WORD_TWO);
-
         SpecialMethodsClass.closeWindow(closeButton);
+
+        SpecialMethodsClass.viewCountCoins(countCoins);
     }
 }

@@ -38,7 +38,7 @@ public class StudentDBRepositoryController {
         System.out.println(URL_DB);
     }
 
-    public void createTale() throws SQLException {
+    public void createTable() throws SQLException {
         TableUtils.createTable(connectionSource, Student.class);
     }
 

@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" styleClass="fon_container" stylesheets="@../../Styles/stylesWordWindow.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.projectinform.Controllers.WindowWord.WindowWordOneController">
+<AnchorPane prefHeight="600.0" prefWidth="900.0" styleClass="fon_container" stylesheets="@../../Styles/stylesWordWindow.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.projectinform.Controllers.WindowWord.WindowWordOneController">
       <children>
          <VBox layoutX="19.0" layoutY="19.0" prefHeight="562.0" prefWidth="863.0">
             <children>
@@ -63,24 +63,24 @@
                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         </rowConstraints>
                         <children>
-                           <Button fx:id="taskThreeWord" mnemonicParsing="false" text="3" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                           <Button fx:id="taskFourWord" mnemonicParsing="false" text="4" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                           <Button fx:id="taskFiveWord" mnemonicParsing="false" text="5" textFill="WHITE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                           <Button fx:id="taskEightWord" mnemonicParsing="false" text="8" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                           <Button fx:id="taskNineWord" mnemonicParsing="false" text="9" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                           <Button fx:id="taskTenWord" mnemonicParsing="false" text="10" textFill="WHITE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                           <Button fx:id="taskTwoWord" mnemonicParsing="false" text="2" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                           <Button fx:id="taskOneWord" mnemonicParsing="false" text="1" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <Button fx:id="task1" mnemonicParsing="false" text="1" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                               <font>
                                  <Font name="System Bold" size="13.0" />
                               </font>
                            </Button>
-                           <Button fx:id="taskSixWord" mnemonicParsing="false" text="6" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                           <Button fx:id="task2" mnemonicParsing="false" text="2" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                           <Button fx:id="task3" mnemonicParsing="false" text="3" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                           <Button fx:id="task4" mnemonicParsing="false" text="4" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                           <Button fx:id="task5" mnemonicParsing="false" text="5" textFill="WHITE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                           <Button fx:id="task6" mnemonicParsing="false" text="6" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                               <font>
                                  <Font name="System Bold" size="13.0" />
                               </font>
                            </Button>
-                           <Button fx:id="taskSevenWord" mnemonicParsing="false" text="7" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                           <Button fx:id="task7" mnemonicParsing="false" text="7" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                           <Button fx:id="task8" mnemonicParsing="false" text="8" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                           <Button fx:id="task9" mnemonicParsing="false" text="9" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                           <Button fx:id="task10" mnemonicParsing="false" text="10" textFill="WHITE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                         </children>
                      </GridPane>
                      <Button fx:id="nextWindow" mnemonicParsing="false" prefHeight="86.0" prefWidth="50.0" styleClass="transparent-button">

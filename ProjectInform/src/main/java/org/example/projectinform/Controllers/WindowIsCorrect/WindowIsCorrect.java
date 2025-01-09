@@ -3,7 +3,7 @@ package org.example.projectinform.Controllers.WindowIsCorrect;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import org.example.projectinform.Dictionaries.DictionaryPath;
+import org.example.projectinform.Dictionaries.FXMLPath;
 import org.example.projectinform.SpecialMethods.SpecialMethodsClass;
 
 import java.net.URL;
@@ -19,7 +19,8 @@ public class WindowIsCorrect implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        SpecialMethodsClass.switchTasksInfo(getTaskInfo, DictionaryPath.WINDOW_TASK_IS_CORRECT);
+
+        SpecialMethodsClass.switchTasksInfo(getTaskInfo, FXMLPath.WINDOW_TASK_IS_CORRECT);
 
         SpecialMethodsClass.checkTasks(isCorrect);
     }

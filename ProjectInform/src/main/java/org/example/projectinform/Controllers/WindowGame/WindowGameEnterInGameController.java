@@ -19,6 +19,7 @@ public class WindowGameEnterInGameController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         SpecialMethodsClass.closeWindow(closeSettingsGame);
 
         SpecialMethodsClass.enterInGame(acceptGame);

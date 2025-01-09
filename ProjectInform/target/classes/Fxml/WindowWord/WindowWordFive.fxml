@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" styleClass="fon_container" stylesheets="@../../Styles/stylesWordWindow.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.projectinform.Controllers.WindowWord.WindowWordFiveController">
+<AnchorPane prefHeight="600.0" prefWidth="900.0" styleClass="fon_container" stylesheets="@../../Styles/stylesWordWindow.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.projectinform.Controllers.WindowWord.WindowWordFiveController">
     <children>
         <VBox layoutX="19.0" layoutY="19.0" prefHeight="562.0" prefWidth="863.0">
             <children>
@@ -67,8 +67,8 @@
                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                             </rowConstraints>
                             <children>
-                                <Button fx:id="taskTwoWord" mnemonicParsing="false" text="2" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                                <Button fx:id="taskOneWord" mnemonicParsing="false" text="1" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                <Button fx:id="task21" mnemonicParsing="false" text="2" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                <Button fx:id="task20" mnemonicParsing="false" text="1" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                     <font>
                                         <Font name="System Bold" size="13.0" />
                                     </font>
@@ -89,7 +89,7 @@
                         </Button>
                         <AnchorPane prefHeight="26.0" prefWidth="326.0">
                             <children>
-                                <Label fx:id="count" alignment="CENTER" layoutX="130.0" layoutY="22.0" prefHeight="35.0" prefWidth="175.0" styleClass="hbox_arch_pane_label_text" text="0" textFill="WHITE" AnchorPane.bottomAnchor="22.4" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="20.799999999999983" AnchorPane.topAnchor="22.0" />
+                                <Label fx:id="countCoins" alignment="CENTER" layoutX="130.0" layoutY="22.0" prefHeight="35.0" prefWidth="175.0" styleClass="hbox_arch_pane_label_text" text="0" textFill="WHITE" AnchorPane.bottomAnchor="22.4" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="20.799999999999983" AnchorPane.topAnchor="22.0" />
                                 <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                                     <image>
                                         <Image url="@../../Paints/I.png" />

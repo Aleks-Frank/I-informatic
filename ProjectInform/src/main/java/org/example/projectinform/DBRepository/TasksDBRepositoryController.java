@@ -29,7 +29,7 @@ public class TasksDBRepositoryController {
         connectionSource.close();
     }
 
-    public void createTale() throws SQLException {
+    public void createTable() throws SQLException {
         TableUtils.createTable(connectionSource, Tasks.class);
     }
 

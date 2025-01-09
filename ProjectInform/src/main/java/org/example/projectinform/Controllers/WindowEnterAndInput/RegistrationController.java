@@ -6,7 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import org.example.projectinform.Controllers.Entity.ChoiceBoxController;
-import org.example.projectinform.Dictionaries.DictionaryPath;
+import org.example.projectinform.Dictionaries.FXMLPath;
 import org.example.projectinform.SpecialMethods.SpecialMethodsClass;
 
 import java.net.URL;
@@ -49,11 +49,11 @@ public class RegistrationController implements Initializable {
 
         ChoiceBoxController.setOptions(roleStud);
 
-        SpecialMethodsClass.registrationStudent(registrationEnter, DictionaryPath.LOGIN, firstNameStud, lastNameStud, roleStud, classStud, loginStud, passwordStud);
+        SpecialMethodsClass.registrationStudent(registrationEnter, FXMLPath.LOGIN, firstNameStud, lastNameStud, roleStud, classStud, loginStud, passwordStud);
 
-        SpecialMethodsClass.switchSettings(settingsButton, DictionaryPath.LOGIN_SETTINGS);
+        SpecialMethodsClass.switchSettings(settingsButton, FXMLPath.LOGIN_SETTINGS);
 
-        SpecialMethodsClass.switchWindow(backLogin, DictionaryPath.LOGIN);
+        SpecialMethodsClass.switchWindow(backLogin, FXMLPath.LOGIN);
 
         SpecialMethodsClass.closeWindow(closeButton);
     }

@@ -3,7 +3,8 @@ package org.example.projectinform.Controllers.WindowGame;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import org.example.projectinform.Dictionaries.DictionaryPath;
+import javafx.scene.control.Label;
+import org.example.projectinform.Dictionaries.FXMLPath;
 import org.example.projectinform.SpecialMethods.SpecialMethodsClass;
 
 import java.net.URL;
@@ -26,17 +27,22 @@ public class WindowGameModePlayTwoController implements Initializable {
     @FXML
     private Button settingsGame;
 
+    @FXML
+    private Label countCoins;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        SpecialMethodsClass.switchSettingsGame(playInGameOne, DictionaryPath.WINDOW_GAME_ENTER_IN_GAME, 2);
+        SpecialMethodsClass.switchSettingsGame(playInGameOne, FXMLPath.WINDOW_GAME_ENTER_IN_GAME, 2);
 
-        SpecialMethodsClass.switchWindow(backMenuStudent, DictionaryPath.STUDENT_MENU);
+        SpecialMethodsClass.switchWindow(backMenuStudent, FXMLPath.STUDENT_MENU);
 
-        SpecialMethodsClass.switchSettings(settingsGame, DictionaryPath.SETTINGS_WINDOW_GAME);
+        SpecialMethodsClass.switchSettings(settingsGame, FXMLPath.SETTINGS_WINDOW_GAME);
 
-        SpecialMethodsClass.switchWindow(backWindow, DictionaryPath.WINDOW_GAME_MODE_PLAY_ONE);
+        SpecialMethodsClass.switchWindow(backWindow, FXMLPath.WINDOW_GAME_MODE_PLAY_ONE);
 
         SpecialMethodsClass.closeWindow(closeButton);
+
+        SpecialMethodsClass.viewCountCoins(countCoins);
     }
 }

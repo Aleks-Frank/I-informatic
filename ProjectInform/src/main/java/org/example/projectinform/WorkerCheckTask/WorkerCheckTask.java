@@ -41,7 +41,7 @@ public class WorkerCheckTask {
             throw new RuntimeException(e);
         }
 
-        if(result){
+        if (result) {
             stageWin.show();
             GlobalStudentUser.globalStudent.setCountCoins(GlobalStudentUser.globalStudent.getCountCoins() + GlobalTasks.globalTasks.getCountCoins());
             try {

@@ -12,16 +12,16 @@ import java.util.ResourceBundle;
 public class WindowWordInfoTask implements Initializable {
 
     @FXML
-    private Button backButton;
-
-    @FXML
-    private Label countCoinsTask;
+    private Label numberTask;
 
     @FXML
     private Label nameTask;
 
     @FXML
-    private Label numberTask;
+    private Label priceTask;
+
+    @FXML
+    private Button backButton;
 
     @FXML
     private Button startButton;
@@ -29,11 +29,12 @@ public class WindowWordInfoTask implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        SpecialMethodsClass.setTasksInfo(numberTask, nameTask, priceTask);
+
         SpecialMethodsClass.closeInfo(backButton);
 
         SpecialMethodsClass.openWordFileOnButton(startButton);
 
-        SpecialMethodsClass.setTasksInfo(numberTask, nameTask, countCoinsTask);
 
     }
 }
