@@ -58,7 +58,7 @@ public class WorkerCheckTask {
         return checker(filePath1, filePath2);
     }
 
-    private static String getUrlUserFile(){
+    public static String getUrlUserFile(){
         return "src/main/resources/File/File_" + nameUser + "_" + lastNameUser + ".docx";
     }
 

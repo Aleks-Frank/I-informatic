@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" styleClass="fon_container" stylesheets="@../../Styles/stylesWordWindow.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.projectinform.Controllers.WindowWord.WindowWordFourController">
+<AnchorPane prefHeight="600.0" prefWidth="900.0" styleClass="fon_container" stylesheets="@../../Styles/stylesWordWindow.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.projectinform.Controllers.WindowWord.WindowWordFourController">
     <children>
         <VBox layoutX="19.0" layoutY="19.0" prefHeight="562.0" prefWidth="863.0">
             <children>
@@ -67,12 +67,12 @@
                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                             </rowConstraints>
                             <children>
-                                <Button fx:id="task18" mnemonicParsing="false" text="1" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                <Button fx:id="task18" mnemonicParsing="false" text="18" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                     <font>
                                         <Font name="System Bold" size="13.0" />
                                     </font>
                                 </Button>
-                                <Button fx:id="task19" mnemonicParsing="false" text="2" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                <Button fx:id="task19" mnemonicParsing="false" text="19" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                             </children>
                             <HBox.margin>
                                 <Insets left="120.0" right="120.0" />

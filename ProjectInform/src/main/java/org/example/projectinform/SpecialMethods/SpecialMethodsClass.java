@@ -34,6 +34,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.text.MessageFormat;
+import java.util.Objects;
 
 public class SpecialMethodsClass {
 
@@ -284,6 +285,10 @@ public class SpecialMethodsClass {
             if (settingStage != null && settingStage.isShowing()){
                 settingStage.close();
             }
+            if (Objects.equals(GlobalTasks.globalTasks.getId(), "word_19")){
+                CopyWordCDoc.copyFileWord();
+            }
+            showTasksInfo();
             openWindowCorrect();
             openWindowResultTask();
         });
@@ -402,6 +407,27 @@ public class SpecialMethodsClass {
                 e.printStackTrace();
             }
         });
+    }
+
+    private static void showTasksInfo(){
+        try {
+            FXMLLoader loader = new FXMLLoader(SpecialMethodsClass.class.getResource(FXMLPath.WINDOW_TASK_IS_CORRECT));
+            Parent newRoot = loader.load();
+            Stage infoTaskStage = new Stage();
+            infoTaskStage.setAlwaysOnTop(true);
+            infoTaskStage.initOwner(primaryStage);
+            infoTaskStage.initStyle(StageStyle.UNDECORATED);
+            infoTaskStage.initModality(Modality.APPLICATION_MODAL);
+            Scene scene = new Scene(newRoot);
+            scene.setFill(Color.TRANSPARENT);
+            infoTaskStage.setScene(scene);
+            infoTaskStage.initStyle(StageStyle.TRANSPARENT);
+
+            infoTasksSave = infoTaskStage;
+            infoTaskStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void quitTask(Button button){
