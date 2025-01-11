@@ -1,9 +1,5 @@
 package org.example.projectinform.WorkerCheckTask;
 
-import com.spire.doc.Document;
-import com.spire.doc.FileFormat;
-import com.spire.doc.documents.comparison.CompareOptions;
-import com.spire.doc.fields.Comment;
 import javafx.stage.Stage;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.openxml4j.exceptions.OpenXML4JException;
