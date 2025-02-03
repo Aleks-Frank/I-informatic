@@ -4,7 +4,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 import javafx.scene.control.Button;
-import org.example.projectinform.SpecialMethods.SpecialMethodsClass;
+import org.example.projectinform.SpecialMethods.GameWorkerSMC;
+import org.example.projectinform.SpecialMethods.SwitchWindowSMC;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,9 +21,9 @@ public class WindowGameEnterInGameController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        SpecialMethodsClass.closeWindow(closeSettingsGame);
+        SwitchWindowSMC.closeWindow(closeSettingsGame);
 
-        SpecialMethodsClass.enterInGame(acceptGame);
+        GameWorkerSMC.enterInGame(acceptGame);
 
     }
 }

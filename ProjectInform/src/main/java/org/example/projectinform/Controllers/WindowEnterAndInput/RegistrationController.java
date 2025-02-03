@@ -7,7 +7,8 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import org.example.projectinform.Controllers.Entity.ChoiceBoxController;
 import org.example.projectinform.Dictionaries.FXMLPath;
-import org.example.projectinform.SpecialMethods.SpecialMethodsClass;
+import org.example.projectinform.SpecialMethods.RegistrationAndLoginSMC;
+import org.example.projectinform.SpecialMethods.SwitchWindowSMC;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -49,12 +50,12 @@ public class RegistrationController implements Initializable {
 
         ChoiceBoxController.setOptions(roleStud);
 
-        SpecialMethodsClass.registrationStudent(registrationEnter, FXMLPath.LOGIN, firstNameStud, lastNameStud, roleStud, classStud, loginStud, passwordStud);
+        RegistrationAndLoginSMC.registrationStudent(registrationEnter, FXMLPath.LOGIN, firstNameStud, lastNameStud, roleStud, classStud, loginStud, passwordStud);
 
-        SpecialMethodsClass.switchSettings(settingsButton, FXMLPath.LOGIN_SETTINGS);
+        SwitchWindowSMC.switchSettings(settingsButton, FXMLPath.LOGIN_SETTINGS);
 
-        SpecialMethodsClass.switchWindow(backLogin, FXMLPath.LOGIN);
+        SwitchWindowSMC.switchWindow(backLogin, FXMLPath.LOGIN);
 
-        SpecialMethodsClass.closeWindow(closeButton);
+        SwitchWindowSMC.closeWindow(closeButton);
     }
 }

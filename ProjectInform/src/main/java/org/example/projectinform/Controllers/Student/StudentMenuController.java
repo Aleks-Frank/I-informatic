@@ -4,7 +4,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import org.example.projectinform.Dictionaries.FXMLPath;
-import org.example.projectinform.SpecialMethods.SpecialMethodsClass;
+import org.example.projectinform.SpecialMethods.RegistrationAndLoginSMC;
+import org.example.projectinform.SpecialMethods.SwitchWindowSMC;
 
 
 import java.net.URL;
@@ -30,14 +31,14 @@ public class StudentMenuController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        SpecialMethodsClass.switchSettings(settingsButton, FXMLPath.SETTINGS_MENU);
+        SwitchWindowSMC.switchSettings(settingsButton, FXMLPath.SETTINGS_MENU);
 
-        SpecialMethodsClass.switchWindow(wordNextStr, FXMLPath.WINDOW_WORD_ONE);
-        SpecialMethodsClass.switchWindow(nextGameWindow, FXMLPath.WINDOW_GAME_MODE_PLAY_ONE);
+        SwitchWindowSMC.switchWindow(wordNextStr, FXMLPath.WINDOW_WORD_ONE);
+        SwitchWindowSMC.switchWindow(nextGameWindow, FXMLPath.WINDOW_GAME_MODE_PLAY_ONE);
 
-        SpecialMethodsClass.closeWindow(closeButton);
+        SwitchWindowSMC.closeWindow(closeButton);
 
-        SpecialMethodsClass.switchWindowBackLogin(logOutProfile, FXMLPath.LOGIN);
+        RegistrationAndLoginSMC.logOutUser(logOutProfile, FXMLPath.LOGIN);
 
     }
 }

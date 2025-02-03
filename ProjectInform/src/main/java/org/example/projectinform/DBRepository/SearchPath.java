@@ -9,10 +9,10 @@ import java.util.Objects;
 
 public class SearchPath {
 
-    private static String path;
+    private static String pathGlob;
 
     public static String SearchPathDB(){
-        Path path = Paths.get("src/main/resources/DB/DatabaseStudent.db");
+        Path path = Paths.get("resources/DB/DatabaseStudent.db");
         String resource = path.toAbsolutePath().toString();
         return "jdbc:sqlite:" + resource;
     }

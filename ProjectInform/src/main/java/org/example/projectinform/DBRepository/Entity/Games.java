@@ -4,7 +4,6 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 import lombok.Data;
 
-@Data
 @DatabaseTable(tableName = "Games")
 public class Games {
 
@@ -33,4 +32,43 @@ public class Games {
         this.urlResult = urlResult;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNameGame() {
+        return nameGame;
+    }
+
+    public void setNameGame(String nameGame) {
+        this.nameGame = nameGame;
+    }
+
+    public int getCountCoins() {
+        return countCoins;
+    }
+
+    public void setCountCoins(int countCoins) {
+        this.countCoins = countCoins;
+    }
+
+    public String getUrlGame() {
+        return urlGame;
+    }
+
+    public void setUrlGame(String urlGame) {
+        this.urlGame = urlGame;
+    }
+
+    public String getUrlResult() {
+        return urlResult;
+    }
+
+    public void setUrlResult(String urlResult) {
+        this.urlResult = urlResult;
+    }
 }

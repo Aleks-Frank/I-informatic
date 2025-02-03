@@ -8,6 +8,6 @@ import org.example.projectinform.DBRepository.Entity.Games;
 @Setter
 public class GlobalGame {
 
-    public static Games globalGame;
+    public static Games globalGame = null;
 
 }

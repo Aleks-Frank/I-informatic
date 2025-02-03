@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import org.example.projectinform.Dictionaries.FXMLPath;
-import org.example.projectinform.SpecialMethods.SpecialMethodsClass;
+import org.example.projectinform.SpecialMethods.SwitchWindowSMC;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,8 +20,8 @@ public class SettingsWindowGameController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        SpecialMethodsClass.switchFromSettingsToTheWindow(exitStudentMenu, FXMLPath.STUDENT_MENU);
+        SwitchWindowSMC.switchFromSettingsToTheWindow(exitStudentMenu, FXMLPath.STUDENT_MENU);
 
-        SpecialMethodsClass.closeWindow(exitMenuPause);
+        SwitchWindowSMC.closeWindow(exitMenuPause);
     }
 }

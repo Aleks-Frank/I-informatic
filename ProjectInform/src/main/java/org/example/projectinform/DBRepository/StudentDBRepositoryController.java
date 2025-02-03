@@ -7,7 +7,6 @@ import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 import lombok.Data;
 import org.example.projectinform.DBRepository.Entity.Student;
-import org.example.projectinform.DBRepository.Entity.Tasks;
 
 import java.sql.SQLException;
 

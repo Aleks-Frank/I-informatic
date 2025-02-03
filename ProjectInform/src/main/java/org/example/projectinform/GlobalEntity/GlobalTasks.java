@@ -6,6 +6,6 @@ import org.example.projectinform.DBRepository.Entity.Tasks;
 @Data
 public class GlobalTasks {
 
-    public static Tasks globalTasks;
+    public static Tasks globalTasks = null;
 
 }

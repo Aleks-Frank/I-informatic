@@ -20,7 +20,7 @@ public class CreateAndOpenFileWord {
 
         nameUser = GlobalStudentUser.globalStudent.getFirstName();
         lastNameUser = GlobalStudentUser.globalStudent.getLastName();
-        urlFile = "src/main/resources/File/File_" + nameUser + "_" + lastNameUser + ".docx";
+        urlFile = "resources/File/File_" + nameUser + "_" + lastNameUser + ".docx";
         File file = new File(urlFile);
 
         if (file.exists()){

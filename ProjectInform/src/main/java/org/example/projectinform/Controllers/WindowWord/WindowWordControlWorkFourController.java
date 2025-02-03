@@ -6,7 +6,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import org.example.projectinform.Dictionaries.FXMLPath;
 import org.example.projectinform.Dictionaries.WordTaskPaths;
-import org.example.projectinform.SpecialMethods.SpecialMethodsClass;
+import org.example.projectinform.SpecialMethods.SwitchWindowSMC;
+import org.example.projectinform.SpecialMethods.TaskWorkerSMC;
+import org.example.projectinform.SpecialMethods.ViewCountCoinsSMC;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -37,17 +39,17 @@ public class WindowWordControlWorkFourController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        SpecialMethodsClass.switchSettings(settingsButton, FXMLPath.SETTINGS_WINDOW_WORD);
+        SwitchWindowSMC.switchSettings(settingsButton, FXMLPath.SETTINGS_WINDOW_WORD);
 
-        SpecialMethodsClass.switchWindow(lastWindow, FXMLPath.WINDOW_WORD_FOUR);
-        SpecialMethodsClass.switchWindow(nextWindow, FXMLPath.WINDOW_WORD_FIVE);
+        SwitchWindowSMC.switchWindow(lastWindow, FXMLPath.WINDOW_WORD_FOUR);
+        SwitchWindowSMC.switchWindow(nextWindow, FXMLPath.WINDOW_WORD_FIVE);
 
-        SpecialMethodsClass.switchInfoWord(enterWorkControl, FXMLPath.WINDOW_WORD_INFO_TASK, WordTaskPaths.CW4);
+        TaskWorkerSMC.switchInfoWord(enterWorkControl, FXMLPath.WINDOW_WORD_INFO_TASK, WordTaskPaths.CW4);
 
-        SpecialMethodsClass.returnMenuWindow(backMenuStudent);
+        SwitchWindowSMC.returnMenuWindow(backMenuStudent);
 
-        SpecialMethodsClass.closeWindow(closeButton);
+        SwitchWindowSMC.closeWindow(closeButton);
 
-        SpecialMethodsClass.viewCountCoins(countCoins);
+        ViewCountCoinsSMC.viewCountCoins(countCoins);
     }
 }

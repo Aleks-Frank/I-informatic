@@ -6,7 +6,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import org.example.projectinform.Dictionaries.FXMLPath;
 import org.example.projectinform.Dictionaries.WordTaskPaths;
-import org.example.projectinform.SpecialMethods.SpecialMethodsClass;
+import org.example.projectinform.SpecialMethods.SwitchWindowSMC;
+import org.example.projectinform.SpecialMethods.TaskWorkerSMC;
+import org.example.projectinform.SpecialMethods.ViewCountCoinsSMC;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -47,20 +49,20 @@ public class WindowWordTwoController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        SpecialMethodsClass.switchInfoWord(task11, FXMLPath.WINDOW_WORD_INFO_TASK, WordTaskPaths.W11);
-        SpecialMethodsClass.switchInfoWord(task12, FXMLPath.WINDOW_WORD_INFO_TASK, WordTaskPaths.W12);
-        SpecialMethodsClass.switchInfoWord(task13, FXMLPath.WINDOW_WORD_INFO_TASK, WordTaskPaths.W13);
-        SpecialMethodsClass.switchInfoWord(task14, FXMLPath.WINDOW_WORD_INFO_TASK, WordTaskPaths.W14);
+        TaskWorkerSMC.switchInfoWord(task11, FXMLPath.WINDOW_WORD_INFO_TASK, WordTaskPaths.W11);
+        TaskWorkerSMC.switchInfoWord(task12, FXMLPath.WINDOW_WORD_INFO_TASK, WordTaskPaths.W12);
+        TaskWorkerSMC.switchInfoWord(task13, FXMLPath.WINDOW_WORD_INFO_TASK, WordTaskPaths.W13);
+        TaskWorkerSMC.switchInfoWord(task14, FXMLPath.WINDOW_WORD_INFO_TASK, WordTaskPaths.W14);
 
-        SpecialMethodsClass.switchSettings(settingsButton, FXMLPath.SETTINGS_WINDOW_WORD);
+        SwitchWindowSMC.switchSettings(settingsButton, FXMLPath.SETTINGS_WINDOW_WORD);
 
-        SpecialMethodsClass.switchWindow(lastWindow, FXMLPath.WINDOW_WORD_CONTROL_WORK_ONE);
-        SpecialMethodsClass.switchWindow(nextWindow, FXMLPath.WINDOW_WORD_CONTROL_WORK_TWO);
+        SwitchWindowSMC.switchWindow(lastWindow, FXMLPath.WINDOW_WORD_CONTROL_WORK_ONE);
+        SwitchWindowSMC.switchWindow(nextWindow, FXMLPath.WINDOW_WORD_CONTROL_WORK_TWO);
 
-        SpecialMethodsClass.returnMenuWindow(backMenuStudent);
+        SwitchWindowSMC.returnMenuWindow(backMenuStudent);
 
-        SpecialMethodsClass.closeWindow(closeButton);
+        SwitchWindowSMC.closeWindow(closeButton);
 
-        SpecialMethodsClass.viewCountCoins(countCoins);
+        ViewCountCoinsSMC.viewCountCoins(countCoins);
     }
 }

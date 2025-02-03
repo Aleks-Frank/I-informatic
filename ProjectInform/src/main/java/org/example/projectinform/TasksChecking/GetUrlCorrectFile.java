@@ -7,7 +7,7 @@ public class GetUrlCorrectFile {
     public static String getUrlCorrectFile(){
         String nameTasks = GlobalTasks.globalTasks.getResult();
         System.out.println(nameTasks);
-        return "src/main/resources/FileCor/" + nameTasks + ".docx";
+        return "resources/FileCor/" + nameTasks + ".docx";
     }
 
 }

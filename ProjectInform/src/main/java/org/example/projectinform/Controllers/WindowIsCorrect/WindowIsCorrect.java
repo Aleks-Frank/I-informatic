@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import org.example.projectinform.Dictionaries.FXMLPath;
-import org.example.projectinform.SpecialMethods.SpecialMethodsClass;
+import org.example.projectinform.SpecialMethods.SwitchWindowSMC;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,8 +20,8 @@ public class WindowIsCorrect implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        SpecialMethodsClass.switchTasksInfo(getTaskInfo, FXMLPath.WINDOW_TASK_IS_CORRECT);
+        SwitchWindowSMC.switchTasksInfo(getTaskInfo, FXMLPath.WINDOW_TASK_IS_CORRECT);
 
-        SpecialMethodsClass.checkTasks(isCorrect);
+        SwitchWindowSMC.checkTasks(isCorrect);
     }
 }

@@ -6,7 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.example.projectinform.Dictionaries.FXMLPath;
-import org.example.projectinform.SpecialMethods.SpecialMethodsClass;
+import org.example.projectinform.SpecialMethods.StageWorkerSMC;
 
 public class App extends Application {
 
@@ -16,11 +16,11 @@ public class App extends Application {
         Parent root = loader.load();
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
-        SpecialMethodsClass.setPrimaryStage(primaryStage);
+        StageWorkerSMC.setPrimaryStage(primaryStage);
         primaryStage.show();
     }
 
     public static void main(String[] args) {
-        launch(args);
+        launch();
     }
 }

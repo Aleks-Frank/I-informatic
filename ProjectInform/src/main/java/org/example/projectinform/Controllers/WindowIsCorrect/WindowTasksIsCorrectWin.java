@@ -4,7 +4,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import org.example.projectinform.SpecialMethods.SpecialMethodsClass;
+import org.example.projectinform.SpecialMethods.SwitchWindowSMC;
+import org.example.projectinform.SpecialMethods.ViewCountCoinsSMC;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -23,11 +24,11 @@ public class WindowTasksIsCorrectWin implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        SpecialMethodsClass.quitTaskWin(logOutToWordMenu);
+        SwitchWindowSMC.quitTaskWin(logOutToWordMenu);
 
-        SpecialMethodsClass.setCountInfoCoinsToWin(countInfocoin);
+        ViewCountCoinsSMC.setCountInfoCoinsToWin(countInfocoin);
 
-        SpecialMethodsClass.nextTask(nextTask);
+        SwitchWindowSMC.nextTask(nextTask);
 
     }
 }

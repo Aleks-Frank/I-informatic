@@ -1,7 +1,7 @@
 package org.example.projectinform.Controllers.WindowEnterAndInput;
 
 import javafx.fxml.Initializable;
-import org.example.projectinform.SpecialMethods.SpecialMethodsClass;
+import org.example.projectinform.SpecialMethods.SwitchWindowSMC;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -16,6 +16,6 @@ public class PauseEnterAndInputController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        SpecialMethodsClass.closeWindow(exitLoginPause);
+        SwitchWindowSMC.closeWindow(exitLoginPause);
     }
 }

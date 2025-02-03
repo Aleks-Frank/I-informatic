@@ -8,7 +8,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import org.example.projectinform.Controllers.Entity.ChoiceBoxController;
 import org.example.projectinform.Dictionaries.FXMLPath;
-import org.example.projectinform.SpecialMethods.SpecialMethodsClass;
+import org.example.projectinform.SpecialMethods.RegistrationAndLoginSMC;
+import org.example.projectinform.SpecialMethods.SwitchWindowSMC;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -49,15 +50,13 @@ public class LoginController implements Initializable {
 
         errorMessage.setVisible(false);
 
-        SpecialMethodsClass.loginStudent(enter, FXMLPath.STUDENT_MENU, roleStud, classStud, loginStud, passwordStud, errorMessage);
+        RegistrationAndLoginSMC.loginStudent(enter, FXMLPath.STUDENT_MENU, roleStud, classStud, loginStud, passwordStud, errorMessage);
 
-//        SpecialMethodsClass.switchWindow(enter, DictionaryPath.STUDENT_MENU);
+        SwitchWindowSMC.switchWindow(registrationInput, FXMLPath.REGISTRATION);
 
-        SpecialMethodsClass.switchWindow(registrationInput, FXMLPath.REGISTRATION);
+        SwitchWindowSMC.switchSettings(settingsButton, FXMLPath.LOGIN_SETTINGS);
 
-        SpecialMethodsClass.switchSettings(settingsButton, FXMLPath.LOGIN_SETTINGS);
-
-        SpecialMethodsClass.closeWindow(closeButton);
+        SwitchWindowSMC.closeWindow(closeButton);
 
     }
 }

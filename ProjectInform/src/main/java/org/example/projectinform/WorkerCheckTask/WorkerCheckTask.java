@@ -1,33 +1,21 @@
 package org.example.projectinform.WorkerCheckTask;
 
 import javafx.stage.Stage;
-import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
-import org.apache.poi.openxml4j.exceptions.OpenXML4JException;
-import org.apache.poi.openxml4j.opc.OPCPackage;
-import org.apache.poi.xwpf.usermodel.XWPFDocument;
-import org.apache.poi.xwpf.usermodel.XWPFParagraph;
-import org.apache.poi.xwpf.usermodel.XWPFRun;
-import org.example.projectinform.GlobalEntity.GlobalStudentUser;
-import org.example.projectinform.GlobalEntity.GlobalTasks;
-import org.example.projectinform.SpecialMethods.SpecialMethodsClass;
-import org.example.projectinform.TasksChecking.GetUrlCorrectFile;
+import org.example.projectinform.GlobalEntity.*;
+import org.example.projectinform.SpecialMethods.SwitchWindowSMC;
+import org.example.projectinform.SpecialMethods.ViewCountCoinsSMC;
+import org.example.projectinform.TasksChecking.*;
 
-import java.io.ByteArrayInputStream;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import static org.example.projectinform.TasksChecking.AllTasksChecking.*;
 
 
 public class WorkerCheckTask {
 
-    static String nameUser = GlobalStudentUser.globalStudent.getFirstName();
-    static String lastNameUser = GlobalStudentUser.globalStudent.getLastName();
+    static String nameUser = GlobalStudentUser.getFirstName();
+    static String lastNameUser = GlobalStudentUser.getLastName();
 
     public static void checkTaskDocument(Stage stageWin, Stage stageFail){
         boolean result;
@@ -39,9 +27,9 @@ public class WorkerCheckTask {
 
         if (result) {
             stageWin.show();
-            GlobalStudentUser.globalStudent.setCountCoins(GlobalStudentUser.globalStudent.getCountCoins() + GlobalTasks.globalTasks.getCountCoins());
+            GlobalStudentUser.setCountCoins(GlobalStudentUser.getCountCoins() + GlobalTasks.globalTasks.getCountCoins());
             try {
-                SpecialMethodsClass.updateStudentCoins();
+                ViewCountCoinsSMC.updateStudentCoins();
             } catch (SQLException e) {
                 System.out.println("Инфокойны не сохранились");
             }
@@ -55,7 +43,7 @@ public class WorkerCheckTask {
     }
 
     public static String getUrlUserFile(){
-        return "src/main/resources/File/File_" + nameUser + "_" + lastNameUser + ".docx";
+        return "resources/File/File_" + nameUser + "_" + lastNameUser + ".docx";
     }
 
     public static String getUrlCorrectFile(){
